@@ -1,0 +1,14 @@
+/* CSS */
+.badge-primary:hover {
+    cursor: pointer; /* Chọn kiểu con trỏ là 'pointer' */
+}
+/* Ví dụ tự định nghĩa CSS */
+.fa-trash-alt {
+    color: red; /* Màu đỏ */
+    cursor: pointer; /* Chọn kiểu con trỏ là 'pointer' */
+  }
+
+  .fa-edit {
+    color: #007bff; /* Màu xanh biển */
+    cursor: pointer; /* Chọn kiểu con trỏ là 'pointer' */
+  }
