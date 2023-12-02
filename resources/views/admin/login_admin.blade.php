@@ -46,6 +46,11 @@ rel="stylesheet"
                           {{ session('success') }}
                       </div>
                   @endif
+                  @if (session('message_logout'))
+                      <div class="alert alert-success">
+                          {{ session('message_logout') }}
+                      </div>
+                  @endif
 
                       <form class="mx-1 mx-md-4" method="POST" action="{{ URL::to('/admin-home') }}">
 

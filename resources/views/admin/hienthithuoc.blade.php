@@ -4,16 +4,14 @@
 <table class="table align-middle mb-0 bg-white">
     <thead class="bg-light">
       <tr>
-        <th>Tên</th>
-        <th>Tuổi</th>
-        <th>Kinh Nghiệm</th>
-        <th>Chuyên Môn</th>
-        <th>Actions</th>
+        <th>Tên Thuốc</th>
+        <th>Loại thuốc</th>
+        <th>Mô tả</th>
+        <th>Hình ảnh</th>
       </tr>
     </thead>
     <tbody>
-        @foreach($users as $user)
-
+        @foreach($medications as $medication)
       <tr>
         <td>
           <div class="d-flex align-items-center">
@@ -24,27 +22,22 @@
                 style="width: 45px; height: 45px"
                 />
             <div class="ms-3">
-              <p class="fw-bold mb-1">{{ $user->name }}</p>
-              <p class="text-muted mb-0">{{ $user->email }}</p>
+              <p class="fw-bold mb-1">{{ $medication->medication_name }}</p>
+              {{-- <p class="text-muted mb-0">{{ $medication->type_medical }}</p> --}}
             </div>
           </div>
         </td>
+
         <td>
-          <p class="fw-normal mb-1">Consultant</p>
-        </td>
-        <td>
-            <p class="text-muted mb-0">Finance</p>
+            <p class="text-muted mb-0">{{ $medication->type_medical }}</p>
 
         </td>
-        <td>Junior</td>
+        <td>{{ $medication->tac_dung }}</td>
         <td>
          <!-- Sử dụng class của Font Awesome để hiển thị biểu tượng xóa -->
-         &nbsp; &nbsp;<a href="link-den-trang-xoa">
-            <i class="fas fa-trash-alt"></i>
-          </a>
+         {{-- <img src="public/uploads/product/{{$pro->product_image}}" width="100" height="100"> --}}
 
-  <!-- Sử dụng class của Font Awesome để hiển thị biểu tượng chỉnh sửa -->
-  <i class="fas fa-edit"></i>
+         <img src="public/uploads/{{$medication->anh_minh_hoa}}" alt="Ảnh minh họa" style="width: 50px; height: 50px;">
         </td>
       </tr>
       @endforeach

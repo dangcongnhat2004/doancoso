@@ -5,15 +5,13 @@
     <thead class="bg-light">
       <tr>
         <th>Tên</th>
-        <th>Tuổi</th>
-        <th>Kinh Nghiệm</th>
-        <th>Chuyên Môn</th>
-        <th>Actions</th>
+        <th>Tình trạng</th>
+        <th>SĐT</th>
+        <th>Địa chỉ</th>
       </tr>
     </thead>
     <tbody>
         @foreach($users as $user)
-
       <tr>
         <td>
           <div class="d-flex align-items-center">
@@ -29,22 +27,16 @@
             </div>
           </div>
         </td>
+
         <td>
-          <p class="fw-normal mb-1">Consultant</p>
-        </td>
-        <td>
-            <p class="text-muted mb-0">Finance</p>
+            <p class="text-muted mb-0">{{ $user->phone }}</p>
 
         </td>
-        <td>Junior</td>
+        <td>{{ $user->phone }}</td>
         <td>
          <!-- Sử dụng class của Font Awesome để hiển thị biểu tượng xóa -->
-         &nbsp; &nbsp;<a href="link-den-trang-xoa">
-            <i class="fas fa-trash-alt"></i>
-          </a>
+         {{ $user->address }}
 
-  <!-- Sử dụng class của Font Awesome để hiển thị biểu tượng chỉnh sửa -->
-  <i class="fas fa-edit"></i>
         </td>
       </tr>
       @endforeach

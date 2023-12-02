@@ -1,5 +1,5 @@
-@extends('admin_layout')
-@section('content_admin')
+@extends('doctor_layout')
+@section('content_doctor')
 
 
 <div class="main_content_iner ">
@@ -16,7 +16,7 @@
                                             <img src="public/frontend_admin/images/man.svg" alt="">
                                         </div>
                                         <div class="count_content">
-                                            <h3><span class="counter">{{ $countDoctors }}</span> </h3>
+                                            <h3><span class="counter">520</span> </h3>
                                             <p>Doctors</p>
                                         </div>
                                     </div>
@@ -134,26 +134,75 @@
                 <div class="white_box card_height_100">
                     <div class="box_header border_bottom_1px  ">
                         <div class="main-title">
-                            <h3 class="mb_25">Giới thiệu bác sĩ</h3>
+                            <h3 class="mb_25">Hospital Staff</h3>
                         </div>
                     </div>
-
                     <div class="staf_list_wrapper sraf_active owl-carousel">
-                        @foreach($usershienthi as $user)
+
                         <div class="single_staf">
                             <div class="staf_thumb">
-                                @if($user->avatar)
-                                <img src="public/uploads/{{$user->anh_minh_hoa}}" alt="Ảnh minh họa" style="width: 50px; height: 50px;">
-                                @else
-                                <img src="{{ asset('public/frontend_admin/images/default_avatar.png') }}" alt="{{ $user->name }}">
-                                @endif
+                                <img src="public/frontend_admin/images/1.png" alt="">
                             </div>
-                            <h4>{{ $user->name }}</h4>
-                            <p>{{ $user->specialization  }}</p>
+                            <h4>Dr. Sysla J Smith</h4>
+                            <p>Doctor</p>
                         </div>
-                        @endforeach
-                    </div>
 
+                        <div class="single_staf">
+                            <div class="staf_thumb">
+                                <img src="public/frontend_admin/images/2.png" alt="">
+                            </div>
+                            <h4>Dr. Sysla J Smith</h4>
+                            <p>Doctor</p>
+                        </div>
+
+                        <div class="single_staf">
+                            <div class="staf_thumb">
+                                <img src="public/frontend_admin/images/3_1.png" alt="">
+                            </div>
+                            <h4>Dr. Sysla J Smith</h4>
+                            <p>Doctor</p>
+                        </div>
+
+                        <div class="single_staf">
+                            <div class="staf_thumb">
+                                <img src="public/frontend_admin/images/4_1.png" alt="">
+                            </div>
+                            <h4>Dr. Sysla J Smith</h4>
+                            <p>Doctor</p>
+                        </div>
+
+                        <div class="single_staf">
+                            <div class="staf_thumb">
+                                <img src="public/frontend_admin/images/5.png" alt="">
+                            </div>
+                            <h4>Dr. Sysla J Smith</h4>
+                            <p>Doctor</p>
+                        </div>
+
+                        <div class="single_staf">
+                            <div class="staf_thumb">
+                                <img src="public/frontend_admin/images/1.png" alt="">
+                            </div>
+                            <h4>Dr. Sysla J Smith</h4>
+                            <p>Doctor</p>
+                        </div>
+
+                        <div class="single_staf">
+                            <div class="staf_thumb">
+                                <img src="public/frontend_admin/images/2.png" alt="">
+                            </div>
+                            <h4>Dr. Sysla J Smith</h4>
+                            <p>Doctor</p>
+                        </div>
+
+                        <div class="single_staf">
+                            <div class="staf_thumb">
+                                <img src="public/frontend_admin/images/3_1.png" alt="">
+                            </div>
+                            <h4>Dr. Sysla J Smith</h4>
+                            <p>Doctor</p>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="col-xl-6">

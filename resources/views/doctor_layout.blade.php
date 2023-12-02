@@ -25,6 +25,7 @@ rel="stylesheet"
   type="text/javascript"
   src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.js"
 ></script>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Hospital</title>
@@ -63,7 +64,21 @@ rel="stylesheet"
     <link rel="stylesheet" href="{{('public/frontend_admin/css/style1.css')}}">
     <link rel="stylesheet" href="{{('public/frontend_admin/css/default.css')}}" id="colorSkinCSS">
 </head>
-
+<style>.form-control {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    width: 500px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 100px;
+}
+.form-cung{
+    margin-left: 100px;
+    color: #749cdb;
+}
+</style>
 <body class="crm_body_bg">
 
 
@@ -76,22 +91,10 @@ rel="stylesheet"
             </div>
         </div>
         <ul id="sidebar_menu">
-            <li class="side_menu_title">
-                <span>Trang Quản Trị</span>
-            </li>
-            <li class="mm-active">
-                <a class="" href="{{URL::to('/trang-chu-admin')}}" aria-expanded="false">
 
-                    <img src="{{('public/frontend_admin/images/1.svg')}}" alt="">
-                    <span>Trang Chủ</span>
-                </a>
-                {{-- <ul>
-                    <li><a class="active" href="index.html">Dashboard 1</a></li>
-                    <li><a href="index_2.html">Dashboard 2</a></li>
-                </ul> --}}
-            </li>
+
             <li class="side_menu_title">
-                <span>Quản lí con người</span>
+                <span>Thông tin cá nhân</span>
             </li>
             <li class="">
                 <a class="has-arrow" href="#" aria-expanded="false">
@@ -99,12 +102,12 @@ rel="stylesheet"
                     <!-- Sử dụng class của Font Awesome để hiển thị biểu tượng -->
   <!-- Thêm biểu tượng khác nếu cần -->
   <i class="fas fa-stethoscope"></i>
-                    <span>Bác Sỹ</span>
+                    <span>Cập nhập hồ sơ</span>
                 </a>
                 <ul>
-                    <li><a href="{{URL::to('/lich-trinh')}}"><i class="fa fa-plus"></i>Xem Lịch Trình</a></li>
-                    <li><a href="{{URL::to('/hien-thi-thong-tin-bac-sy')}}"><i class="fa fa-plus"></i>Hiển Thị Danh Sách</a></li>
-                    <li><a href="{{URL::to('/them-tai-khoan-bac-si')}}"><i class="fa fa-plus"></i>Thêm tài khoản bác sĩ</a></li>
+                    <li><a href="{{URL::to('/doctor-lich-trinh')}}"><i class="fa fa-plus"></i>Lịch Trình của tôi</a></li>
+                    {{-- <li><a href="{{URL::to('/doctor-hien-thi-thong-tin-bac-sy')}}"><i class="fa fa-plus"></i>Hiển Thị Danh Sách</a></li> --}}
+                    <li><a href="{{URL::to('/doctor-cap-nhat-thong-tin')}}"><i class="fa fa-plus"></i>Cập nhật thông tin</a></li>
 
                 </ul>
             </li>
@@ -114,38 +117,12 @@ rel="stylesheet"
                     <span>Bệnh Nhân</span>
                 </a>
                 <ul>
-                    <li><a href="{{URL::to('/hien-thi-benh-nhan')}}"><i class="fa fa-plus"></i>Hiển Thị Danh Sách</a></li>
-                </ul>
-            </li>
-             <li class="side_menu_title">
-                <span>Quản lí bài viết</span>
-            </li>
-            <li class="">
-                <a class="has-arrow" href="#" aria-expanded="false">
-                    <img src="public/frontend_admin/images/4.svg" alt="">
-                    <span>Bài viết</span>
-                </a>
-                <ul>
-                    <li><a href="{{URL::to('/them-bai-viet')}}">Thêm bài viết</a>
-
-                    </li>
-                    <li><a href="{{URL::to('/hien-thi-thuoc')}}">Danh sách các bài viết</a>
-
-                    </li>
+                    <li><a href="{{URL::to('/doctor-hien-thi-benh-nhan')}}"><i class="fa fa-plus"></i>Hiển Thị Danh Sách</a></li>
                 </ul>
             </li>
 
-            <li class="">
-                <a class="has-arrow" href="#" aria-expanded="false">
-                    <img src="public/frontend_admin/images/7.svg" alt="">
-                    <span>Charts</span>
-                </a>
-                <ul>
-                    <li><a href="chartjs.html">ChartJS</a></li>
-                    <li><a href="apex_chart.html">Apex Charts</a></li>
-                    <li><a href="chart_sparkline.html">Chart sparkline</a></li>
-                </ul>
-            </li>
+
+
         </ul>
     </nav>
 
@@ -184,7 +161,7 @@ rel="stylesheet"
                                     <h5>Quản Trị Viên</h5>
                                     <div class="profile_info_details">
 
-                                        <form method="POST" action="{{ route('logout') }}">
+                                        <form method="POST" action="{{ URL::to('/doctor-home') }}">
                                             @csrf
                                             <button type="submit">Logout</button>
                                         </form>                                    </div>
@@ -199,7 +176,7 @@ rel="stylesheet"
 
 
 
-        @yield('content_admin')
+        @yield('content_doctor')
 
 
 
@@ -264,6 +241,7 @@ rel="stylesheet"
     <script src="{{('public/frontend_admin/js/custom.js')}}"></script>
     <script src="{{('public/frontend_admin/js/bar_active_1.js')}}"></script>
     <script src="{{('public/frontend_admin/js/apex_chart_list.js')}}"></script>
+    <script></script>
 
 </body>
 

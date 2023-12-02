@@ -4,15 +4,16 @@
 <table class="table align-middle mb-0 bg-white">
     <thead class="bg-light">
       <tr>
-        <th>Tên</th>
-        <th>Tuổi</th>
-        <th>Kinh Nghiệm</th>
-        <th>Chuyên Môn</th>
-        <th>Actions</th>
+        <th>Bác sĩ</th>
+        <th>Chuyên ngành</th>
+        <th>Ngày hẹn</th>
+        <th>Thời gian</th>
+        <th>Trạng Thái</th>
+        <th>Người hẹn</th>
+
       </tr>
     </thead>
     <tbody>
-        @foreach($users as $user)
 
       <tr>
         <td>
@@ -24,8 +25,8 @@
                 style="width: 45px; height: 45px"
                 />
             <div class="ms-3">
-              <p class="fw-bold mb-1">{{ $user->name }}</p>
-              <p class="text-muted mb-0">{{ $user->email }}</p>
+              <p class="fw-bold mb-1">Alex Ray</p>
+              <p class="text-muted mb-0">alex.ray@gmail.com</p>
             </div>
           </div>
         </td>
@@ -39,15 +40,27 @@
         <td>Junior</td>
         <td>
          <!-- Sử dụng class của Font Awesome để hiển thị biểu tượng xóa -->
-         &nbsp; &nbsp;<a href="link-den-trang-xoa">
-            <i class="fas fa-trash-alt"></i>
-          </a>
+         &nbsp; &nbsp; &nbsp; &nbsp;
+         <i class="fa-solid fa-thumbs-up" style="color: #0a5ef0;"></i>
 
-  <!-- Sử dụng class của Font Awesome để hiển thị biểu tượng chỉnh sửa -->
-  <i class="fas fa-edit"></i>
+
         </td>
+
+        <td>
+            <div class="d-flex align-items-center">
+              <img
+                  src="https://mdbootstrap.com/img/new/avatars/6.jpg"
+                  class="rounded-circle"
+                  alt=""
+                  style="width: 45px; height: 45px"
+                  />
+              <div class="ms-3">
+                <p class="fw-bold mb-1">Alex Ray</p>
+                <p class="text-muted mb-0">alex.ray@gmail.com</p>
+              </div>
+            </div>
+          </td>
       </tr>
-      @endforeach
 
     </tbody>
   </table>

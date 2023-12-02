@@ -46,44 +46,45 @@ rel="stylesheet"
                       {{ session('error') }}
                   </div>
               @endif
-                      <form class="mx-1 mx-md-4" method="POST" action="{{URL::to('/user-home')}}">
-                        {{ csrf_field() }}
+              <form class="mx-1 mx-md-4" method="POST" action="{{ URL::to('/doctor-home') }}">
 
-                        <div class="d-flex flex-row align-items-center mb-4">
-                          <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
-                          <div class="form-outline flex-fill mb-0">
-                            <input type="Username" id="form3Example3c" class="form-control" name="email"/>
-                            <label class="form-label" for="form3Example3c">Tên Đăng Nhập</label>
-                          </div>
-                        </div>
+                {{ csrf_field() }}
 
-                        <div class="d-flex flex-row align-items-center mb-4">
-                          <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
-                          <div class="form-outline flex-fill mb-0">
-                            <input type="password" id="form3Example4c" class="form-control" name="password" />
-                            <label class="form-label" for="form3Example4c">Mật Khẩu</label>
-                          </div>
-                        </div>
+                <div class="d-flex flex-row align-items-center mb-4">
+                  <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                  <div class="form-outline flex-fill mb-0">
+                    <input type="email" id="form3Example3c" class="form-control" name="email" />
+                    <label class="form-label" for="form3Example3c">Tên Đăng Nhập</label>
+                  </div>
+                </div>
+
+                <div class="d-flex flex-row align-items-center mb-4">
+                  <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                  <div class="form-outline flex-fill mb-0">
+                    <input type="password" id="form3Example4c" class="form-control" name="password" />
+                    <label class="form-label" for="form3Example4c">Mật Khẩu</label>
+                  </div>
+                </div>
 
 <!-- Checkbox -->
 <div class="form-check">
-    <input class="form-check-input" type="checkbox" value="" id="form1Example3" checked />
-    <label class="form-check-label" for="form1Example3">Lưu Mật Khẩu</label>
-  </div>
-  <a href="#!">Quên Mật Khẩu</a> Hoặc <a href="{{URL::to('/dang-ki')}}">Bạn chưa có tài khoản?</a><br>
+<input class="form-check-input" type="checkbox" value="" id="form1Example3" checked />
+<label class="form-check-label" for="form1Example3">Lưu Mật Khẩu</label>
+</div>
 
 
-  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4"><br>
-    <button type="submit" class="btn btn-primary btn-lg">Đăng Nhập</button>
-  </div>
 
-                      </form>
+                <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4"><br>
+                  <button type="submit" class="btn btn-primary btn-lg">Đăng Nhập</button>
+                </div>
+
+              </form>
 
                     </div>
                     <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
 
-                      <img src="https://t3.ftcdn.net/jpg/01/35/03/62/360_F_135036205_PMNUP4K1lso6lD1o07v2qVxg6LY3Xqym.jpg"
-                        class="img-fluid" alt="Sample image">
+                      <img src="https://medical3danimationcompany.com/wp-content/uploads/2022/03/Medical-Animation-Explainer-Videos-scaled.jpg"
+                        class="img-fluid" alt="Sample image" >
 
                     </div>
                   </div>
@@ -100,4 +101,3 @@ rel="stylesheet"
   src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.js"
 ></script>
 </html>
-
