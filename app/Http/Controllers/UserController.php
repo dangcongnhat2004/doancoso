@@ -12,8 +12,33 @@ use Carbon\Carbon;
 use App\Models\Appointment;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\AppointmentNotification;
+use Redirect;
 class UserController extends Controller
 {
+    public function authLogin()
+    {
+        $email=session::get('email');
+        if($email){
+           return Redirect::to('admin-home');
+        }else{
+            return Redirect::to('dang-nhap')->send();
+        }
+    }
+    public function logoutCustom(Request $request)
+    {
+        // Kiểm tra xem người dùng đã đăng nhập chưa
+        if (Session::has('id')) {
+            // Nếu đã đăng nhập, xóa phiên đăng nhập
+            Session::forget('id');
+
+            // Chuyển hướng về trang đăng nhập hoặc trang không có quyền truy cập
+            return redirect('/dang-nhap')->with('success', 'Bạn đã đăng xuất thành công.');
+        } else {
+            // Nếu chưa đăng nhập, chuyển hướng về trang đăng nhập
+            return redirect('/dang-nhap')->with('error', 'Bạn chưa đăng nhập.');
+        }
+    }
+
     public function home(){
         return view('homepage');
     }
@@ -24,6 +49,7 @@ class UserController extends Controller
         return view('users.login');
     }
     public function homepage(){
+        $this->authenticate();
         return view('users.homeuser');
     }
     public function login(Request $request)
@@ -60,6 +86,7 @@ class UserController extends Controller
 
 public function datlich(Request $request)
 {
+    $this->authLogin();
     // Xác định người dùng đang đăng nhập
     $userId = Auth::id();
     $user = User::find($userId);
@@ -115,6 +142,7 @@ public function datlich(Request $request)
 }
 
 
+
     public function register(){
         return view('users.register');
     }
@@ -161,10 +189,13 @@ public function datlich(Request $request)
 
 
 
-    public function Login_user(){
+    public function cuochen(){
+        $userId = auth()->id();
+  // Lấy tất cả cuộc hẹn của người dùng đang đăng nhập
+  $appointments = Appointment::where('user_id', auth()->id())->get();
+  $namedetailsDoctors = User::where('role', 'doctor')->get();
 
-
-
+  return view('users.cuochen', compact('appointments', 'namedetailsDoctors'));
     }
 
 }

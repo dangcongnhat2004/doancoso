@@ -153,7 +153,7 @@ rel="stylesheet"
 											</li>
 											<li><a href="{{URL::to('/user-hien-thi-bac-si')}}">Bác Sĩ</a></li>
 											<li><a href="{{URL::to('/user-dat-lich')}}">Đặt Lịch{{--<i class="icofont-rounded-down"></i>--}} </a></li>
-											<li><a href="#">Cuộc Hẹn</a>
+											<li><a href="{{URL::to('/user-cuoc-hen')}}">Cuộc Hẹn</a>
 												{{-- <ul class="dropdown">
 													<li><a href="404.html">404 Error</a></li>
 												</ul> --}}
@@ -163,15 +163,21 @@ rel="stylesheet"
 													<li><a href="blog-single.html">Blog Details</a></li>
 												</ul> --}}
 											</li>
-                                            <li><a href="{{URL::to('/dang-nhap')}}" style="color: #007bff;">{{ session('user_name') }}</a></li>
-                                        </nav>
+                                            <li><a href="{{ URL::to('/dang-xuat') }}" style="color: #007bff;">Đăng Xuất</a></li>
+                                      </nav>
 								</div>
 								<!--/ End Main Menu -->
 							</div>
 							<div class="col-lg-2 col-12">
-								<div class="get-quote">
-									<a href="{{URL::to('/user-dat-lich')}}" class="btn">Đặt Lịch Hẹn</a>
-								</div>
+                                <li>
+                                <form method="POST" action="{{URL::to('/dang-xuat')}}" style="top: 50%;">
+                                    @csrf
+                                    <button type="submit" class="logout-button">
+                                       Đăng xuất
+                                    </button>
+                                </form>
+                                
+                            </li>
 							</div>
 						</div>
 					</div>
