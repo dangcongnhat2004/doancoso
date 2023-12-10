@@ -84,18 +84,21 @@ rel="stylesheet"
 
 		<!-- Get Pro Button -->
 		<ul class="pro-features">
-			<a class="get-pro" href="#">Get Pro</a>
+			<a class="get-pro" href="#">Tài khoản</a>
 			<li class="big-title">Pro Version Available on Themeforest</li>
-			<li class="title">Pro Version Features</li>
-			<li>2+ premade home pages</li>
-			<li>20+ html pages</li>
-			<li>Color Plate With 12+ Colors</li>
-			<li>Sticky Header / Sticky Filters</li>
-			<li>Working Contact Form With Google Map</li>
-			<div class="button">
-				<a href="http://preview.themeforest.net/item/mediplus-medical-and-doctor-html-template/full_screen_preview/26665910?_ga=2.145092285.888558928.1591971968-344530658.1588061879" target="_blank" class="btn">Pro Version Demo</a>
-				<a href="https://themeforest.net/item/mediplus-medical-and-doctor-html-template/26665910" target="_blank" class="btn">Buy Pro Version</a>
-			</div>
+
+
+            <div class="button">
+                <form method="POST" action="{{URL::to('/dang-xuat')}}">
+                    @csrf
+                    <button type="submit" class="btn">Đăng xuất</button>
+                </form>
+                <a href="/thongtin" target="_blank" class="btn">Buy Pro Version</a>
+            </div>
+
+
+
+
 		</ul>
 
 		<!-- Header Area -->
@@ -163,21 +166,17 @@ rel="stylesheet"
 													<li><a href="blog-single.html">Blog Details</a></li>
 												</ul> --}}
 											</li>
-                                            <li><a href="{{ URL::to('/dang-xuat') }}" style="color: #007bff;">Đăng Xuất</a></li>
+                                            <li><a href="#" style="color: #007bff;">@if(session('user_name'))
+                                                {{ session('user_name') }}
+                                            @else
+                                                Xin chào, Khách
+                                            @endif</a></li>
                                       </nav>
 								</div>
 								<!--/ End Main Menu -->
 							</div>
 							<div class="col-lg-2 col-12">
-                                <li>
-                                <form method="POST" action="{{URL::to('/dang-xuat')}}" style="top: 50%;">
-                                    @csrf
-                                    <button type="submit" class="logout-button">
-                                       Đăng xuất
-                                    </button>
-                                </form>
-                                
-                            </li>
+
 							</div>
 						</div>
 					</div>

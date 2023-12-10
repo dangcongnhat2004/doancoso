@@ -15,6 +15,7 @@ use App\Mail\AppointmentNotification;
 use Redirect;
 class UserController extends Controller
 {
+
     public function authLogin()
     {
         $email=session::get('email');
@@ -24,21 +25,14 @@ class UserController extends Controller
             return Redirect::to('dang-nhap')->send();
         }
     }
-    public function logoutCustom(Request $request)
-    {
-        // Kiểm tra xem người dùng đã đăng nhập chưa
-        if (Session::has('id')) {
-            // Nếu đã đăng nhập, xóa phiên đăng nhập
-            Session::forget('id');
+     public function logout(Request $request)
+     {
+         Auth::logout(); // Đăng xuất người dùng
+         $request->session()->invalidate(); // Hủy bỏ phiên làm việc
+         $request->session()->regenerateToken(); // Tạo lại token CSRF mới
 
-            // Chuyển hướng về trang đăng nhập hoặc trang không có quyền truy cập
-            return redirect('/dang-nhap')->with('success', 'Bạn đã đăng xuất thành công.');
-        } else {
-            // Nếu chưa đăng nhập, chuyển hướng về trang đăng nhập
-            return redirect('/dang-nhap')->with('error', 'Bạn chưa đăng nhập.');
-        }
-    }
-
+        return redirect('/dang-nhap'); // Chuyển hướng về trang chính hoặc trang đăng nhập
+     }
     public function home(){
         return view('homepage');
     }
@@ -49,7 +43,6 @@ class UserController extends Controller
         return view('users.login');
     }
     public function homepage(){
-        $this->authenticate();
         return view('users.homeuser');
     }
     public function login(Request $request)
@@ -83,10 +76,9 @@ class UserController extends Controller
         return redirect()->back()->with('error', 'Đăng nhập không thành công. Vui lòng thử lại.');
     }
 }
-
 public function datlich(Request $request)
 {
-    $this->authLogin();
+
     // Xác định người dùng đang đăng nhập
     $userId = Auth::id();
     $user = User::find($userId);
