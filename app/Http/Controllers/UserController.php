@@ -15,12 +15,23 @@ use App\Mail\AppointmentNotification;
 use Redirect;
 class UserController extends Controller
 {
+    function checkAuthentication()
+    {
+        // Kiểm tra xem người dùng đã đăng nhập chưa
+        if (!Auth::check()) {
+            // Nếu chưa đăng nhập, chuyển hướng đến trang đăng nhập
+            return Redirect::to('/dang-nhap');
+        }
+
+        // Nếu đã đăng nhập, không thực hiện chuyển hướng
+        return null;
+    }
 
     public function authLogin()
     {
         $email=session::get('email');
         if($email){
-           return Redirect::to('admin-home');
+           return Redirect::to('user-home');
         }else{
             return Redirect::to('dang-nhap')->send();
         }
@@ -31,18 +42,42 @@ class UserController extends Controller
          $request->session()->invalidate(); // Hủy bỏ phiên làm việc
          $request->session()->regenerateToken(); // Tạo lại token CSRF mới
 
-        return redirect('/dang-nhap'); // Chuyển hướng về trang chính hoặc trang đăng nhập
+        return redirect('/'); // Chuyển hướng về trang chính hoặc trang đăng nhập
      }
     public function home(){
+         // Gọi hàm kiểm tra xác thực
+    // $authenticationResult = $this->checkAuthentication();
+
+    // // Kiểm tra kết quả xác thực
+    // if ($authenticationResult !== null) {
+    //     // Nếu chưa đăng nhập, redirect sẽ được trả về từ hàm checkAuthentication
+    //     return $authenticationResult;
+    // }
         return view('homepage');
     }
     public function homeuser(){
+         // Gọi hàm kiểm tra xác thực
+    $authenticationResult = $this->checkAuthentication();
+
+    // Kiểm tra kết quả xác thực
+    if ($authenticationResult !== null) {
+        // Nếu chưa đăng nhập, redirect sẽ được trả về từ hàm checkAuthentication
+        return $authenticationResult;
+    }
         return view('users.homeuser');
     }
     public function loginuser(){
         return view('users.login');
     }
     public function homepage(){
+         // Gọi hàm kiểm tra xác thực
+    $authenticationResult = $this->checkAuthentication();
+
+    // Kiểm tra kết quả xác thực
+    if ($authenticationResult !== null) {
+        // Nếu chưa đăng nhập, redirect sẽ được trả về từ hàm checkAuthentication
+        return $authenticationResult;
+    }
         return view('users.homeuser');
     }
     public function login(Request $request)
@@ -63,8 +98,7 @@ class UserController extends Controller
         if ($user->role === 'user') {
 
             // Kiểm tra xem đăng nhập user có role là 'admin' không
-            Session::flash('success', ' !');
-            $request->session()->put('user_name', $user->name);
+           $request->session()->put('user_name', $user->name);
             return view('users.homeuser');
         } else {
             // Nếu không phải admin, đăng xuất và thông báo lỗi
@@ -139,12 +173,28 @@ public function datlich(Request $request)
         return view('users.register');
     }
     public function hienthibacsi()
-    {
-        $doctors = User::where('role', 'doctor')->get(); // Giả sử Doctor là model tương ứng với bảng doctors
+{
+    // Gọi hàm kiểm tra xác thực
+    $authenticationResult = $this->checkAuthentication();
 
-        return view('users.hienthibacsi', compact('doctors'));
+    // Kiểm tra kết quả xác thực
+    if ($authenticationResult !== null) {
+        // Nếu chưa đăng nhập, redirect sẽ được trả về từ hàm checkAuthentication
+        return $authenticationResult;
     }
+
+    $doctors = User::where('role', 'doctor')->get();
+    return view('users.hienthibacsi', compact('doctors'));
+}
     public function hienthilich(){
+         // Gọi hàm kiểm tra xác thực
+    $authenticationResult = $this->checkAuthentication();
+
+    // Kiểm tra kết quả xác thực
+    if ($authenticationResult !== null) {
+        // Nếu chưa đăng nhập, redirect sẽ được trả về từ hàm checkAuthentication
+        return $authenticationResult;
+    }
         $doctors = User::where('role', 'doctor')->get(); // Giả sử Doctor là model tương ứng với bảng doctors
 
         return view('users.datlich', compact('doctors'));

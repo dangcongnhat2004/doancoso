@@ -83,7 +83,23 @@ rel="stylesheet"
         <!-- End Preloader -->
 
 		<!-- Get Pro Button -->
+		<ul class="pro-features">
+			<a class="get-pro" href="#">Tài khoản</a>
+			<li class="big-title">Pro Version Available on Themeforest</li>
 
+
+            <div class="button">
+                <form method="POST" action="{{URL::to('/dang-xuat')}}">
+                    @csrf
+                    <button type="submit" class="btn">Đăng xuất</button>
+                </form>
+                <a href="/thongtin" target="_blank" class="btn">Buy Pro Version</a>
+            </div>
+
+
+
+
+		</ul>
 
 		<!-- Header Area -->
 		<header class="header" >
@@ -121,7 +137,7 @@ rel="stylesheet"
 							<div class="col-lg-3 col-md-3 col-12">
 								<!-- Start Logo -->
 								<div class="logo">
-                                    <a href="index.html"><img src="{{('public/frontend/img/anhdaidien.png')}}" width="220" alt="#"></a>
+									<a href="index.html"><img src="{{('public/frontend/img/logo.png')}}" alt="#"></a>
 								</div>
 								<!-- End Logo -->
 								<!-- Mobile Nav -->
@@ -133,33 +149,34 @@ rel="stylesheet"
 								<div class="main-menu">
 									<nav class="navigation">
 										<ul class="nav menu">
-											<li class="active"><a href="{{URL::to('/')}}">Trang Chủ</a>
+											<li class="active"><a href="{{URL::to('/user-home')}}">Trang Chủ</a>
 												{{-- <ul class="dropdown">
 													<li><a href="index.html">Home Page 1</a></li>
 												</ul> --}}
 											</li>
-											<li><a href="{{URL::to('/dang-nhap')}}">Bác Sĩ</a></li>
-											<li><a href="{{URL::to('/dang-nhap')}}">Đặt Lịch{{--<i class="icofont-rounded-down"></i>--}} </a></li>
-											<li><a href="{{URL::to('/dang-nhap')}}">Tin Tức</a>
+											<li><a href="{{URL::to('/user-hien-thi-bac-si')}}">Bác Sĩ</a></li>
+											<li><a href="{{URL::to('/user-dat-lich')}}">Đặt Lịch{{--<i class="icofont-rounded-down"></i>--}} </a></li>
+											<li><a href="{{URL::to('/user-cuoc-hen')}}">Cuộc Hẹn</a>
 												{{-- <ul class="dropdown">
 													<li><a href="404.html">404 Error</a></li>
 												</ul> --}}
 											</li>
-											<li><a href="{{URL::to('/dang-nhap')}}">Chat AI {{--<i class="icofont-rounded-down"></i>--}} </a>
+											<li><a href="#">Chat AI {{--<i class="icofont-rounded-down"></i>--}} </a>
 												{{-- <ul class="dropdown">
 													<li><a href="blog-single.html">Blog Details</a></li>
 												</ul> --}}
 											</li>
-											<li><a href="{{URL::to('/dang-nhap')}}">Đăng Nhập</a></li>
-										</ul>
-									</nav>
+                                            <li><a href="#" style="color: #007bff;">@if(session('user_name'))
+                                                {{ session('user_name') }}
+                                            @else
+                                                Xin chào, Khách
+                                            @endif</a></li>
+                                      </nav>
 								</div>
 								<!--/ End Main Menu -->
 							</div>
 							<div class="col-lg-2 col-12">
-								<div class="get-quote">
-									<a href="{{URL::to('/dang-nhap')}}" class="btn">Đặt Lịch Khám</a>
-								</div>
+
 							</div>
 						</div>
 					</div>
@@ -249,7 +266,7 @@ rel="stylesheet"
 					<div class="row">
 						<div class="col-lg-12 col-md-12 col-12">
 							<div class="copyright-content">
-								<p>© Copyright 2023  |  được làm bởi <a href="" target="_blank">Nhật đẹp trai-phước xấu gái</a> </p>
+								<p>© Copyright 2018  |  All Rights Reserved by <a href="https://www.wpthemesgrid.com" target="_blank">wpthemesgrid.com</a> </p>
 							</div>
 						</div>
 					</div>
@@ -299,5 +316,36 @@ rel="stylesheet"
 		<script src="{{('public/frontend/js/bootstrap.min.js')}}"></script>
 		<!-- Main JS -->
 		<script src="{{('public/frontend/js/main.js')}}"></script>
+        //chuyển active
+
+<script>
+    $(document).ready(function() {
+        // Khởi tạo
+        var activeItem = localStorage.getItem('activeItem');
+        if (activeItem) {
+            $('.main-menu .menu li').removeClass('active');
+            $('.main-menu .menu a[href="' + activeItem + '"]').parent('li').addClass('active');
+        }
+
+        $('.main-menu .menu a').click(function(e) {
+            e.preventDefault(); // Ngăn chặn hành động mặc định của thẻ 'a'
+
+            // Lấy giá trị href từ thẻ 'a'
+            var targetUrl = $(this).attr('href');
+
+            // Loại bỏ lớp 'active' từ tất cả các mục
+            $('.main-menu .menu li').removeClass('active');
+
+            // Thêm lớp 'active' cho mục được nhấp vào
+            $(this).parent('li').addClass('active');
+
+            // Lưu trạng thái "active" vào localStorage
+            localStorage.setItem('activeItem', targetUrl);
+
+            // Chuyển hướng đến URL tương ứng
+            window.location.href = targetUrl;
+        });
+    });
+    </script>
     </body>
 </html>

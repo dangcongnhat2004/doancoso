@@ -15,10 +15,16 @@ class CreateAppointmentsTable extends Migration
     {
         Schema::create('appointments', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('address');
+            $table->string('phone');
+            $table->string('email');
             $table->unsignedBigInteger('user_id');
             $table->date('appointment_date');
             $table->time('appointment_time');
             $table->enum('status', ['confirmed', 'pending', 'canceled', 'completed']);
+            $table->text('message')->nullable();
+            $table->string('status');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');

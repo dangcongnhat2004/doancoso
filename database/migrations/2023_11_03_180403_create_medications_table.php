@@ -17,15 +17,18 @@ class CreateMedicationsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->string('medication_name');
-            $table->string('dosage')->nullable();
-            $table->text('schedule')->nullable();
-            $table->date('start_date')->nullable();
-            $table->date('end_date')->nullable();
+            $table->string('dosage');
+            $table->string('type_medical')->nullable();
+            $table->text('tac_dung')->nullable();
+            $table->string('anh_minh_hoa')->nullable();
+            $table->string('schedule');
+            $table->date('start_date');
+            $table->date('end_date');
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users');
+            // Foreign key constraint
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
-
     }
 
     /**

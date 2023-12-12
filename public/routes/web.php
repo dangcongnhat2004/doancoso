@@ -25,7 +25,7 @@ use Illuminate\Support\Facades\Route;
     Route::post('/user-home', [UserController::class, 'login']);
     Route::get('/dang-ki', [UserController::class, 'register'])->name('register');
     Route::post('/dang-ki', [UserController::class, 'create']);
-    Route::get('/user-hien-thi-bac-si', [UserController::class, 'hienthibacsi']);
+    Route::get('/user-hien-thi-bac-si', [UserController::class, 'hienthibacsi'])->name('user-hien-thi-bac-si');
     Route::get('/user-dat-lich', [UserController::class, 'hienthilich']);
     Route::post('/user-dat-lich', [UserController::class, 'datlich']);
     Route::get('/user-cuoc-hen', [UserController::class, 'cuochen']);
