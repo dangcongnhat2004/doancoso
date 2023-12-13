@@ -24,7 +24,6 @@ class CreateAppointmentsTable extends Migration
             $table->time('appointment_time');
             $table->enum('status', ['confirmed', 'pending', 'canceled', 'completed']);
             $table->text('message')->nullable();
-            $table->string('status');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
