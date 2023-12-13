@@ -22,7 +22,10 @@ class CreateUsersTable extends Migration
             $table->string('phone')->nullable();
             $table->string('avatar')->nullable();
             $table->enum('role', ['admin', 'user','doctor'])->default('user');
-
+            $table->text('specialization')->nullable();
+            $table->integer('work_days')->nullable();
+            $table->string('work_hours')->nullable();
+            $table->string('status')->default('active');
             $table->timestamps();
         });
     }
