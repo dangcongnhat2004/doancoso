@@ -173,7 +173,7 @@ public function datlich(Request $request)
         return view('users.register');
     }
     public function hienthibacsi()
-{
+  {
     // Gọi hàm kiểm tra xác thực
     $authenticationResult = $this->checkAuthentication();
 

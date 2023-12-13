@@ -64,5 +64,12 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'auth.custom' => \App\Http\Middleware\Authenticate::class,
+        'validate_token' => \App\Http\Middleware\EnsureTokenIsValid::class,
+        'verfiy-account-balance' => App\Http\Middleware\VerifyAccountBalance::class,
+        'custom.auth' => \App\Http\Middleware\AuthenticateMiddleware::class,
+        'auth.customized' => \App\Http\Middleware\AuthenticateMiddleware::class,
+        'auth.check' => \App\Http\Middleware\AuthCheckMiddleware::class,
+
     ];
+
 }
