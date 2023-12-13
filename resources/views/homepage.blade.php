@@ -379,7 +379,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="section-title">
-                    <h2>Chúng tôi cung cấp cho bạn phương pháp điều trị tốt nhất với giá cả hợp lí</h2>
+                    <h2 style="font-family: Roboto;">Chúng tôi cung cấp cho bạn phương pháp điều trị tốt nhất với giá cả hợp lí</h2>
                     <img src="{{('public/frontend/img/section-img.png')}}" alt="#">
                 </div>
             </div>
@@ -393,21 +393,21 @@
                         <div class="icon">
                             <i class="icofont icofont-ui-cut"></i>
                         </div>
-                        <h4 class="title">Phẫu thuật</h4>
+                        <h4 class="title">Phẫu thuật mắt</h4>
                         <div class="price">
-                            <p class="amount">$199<span>/ Per Visit</span></p>
+                            <p class="amount">1.999.000 VNĐ<span></span></p>
                         </div>
                     </div>
                     <!-- Table List -->
                     <ul class="table-list">
-                        <li><i class="icofont icofont-ui-check"></i>Lorem ipsum dolor sit</li>
-                        <li><i class="icofont icofont-ui-check"></i>Cubitur sollicitudin fentum</li>
-                        <li><i class="icofont icofont-ui-check"></i> Nullam interdum enim</li>
-                        <li><i class="icofont icofont-ui-check"></i>Donec ultricies metus</li>
-                        <li><i class="icofont icofont-ui-check"></i>Pellentesque eget nibh</li>
+                        <li><i class="icofont icofont-ui-check"></i>Chuẩn đoán sức khỏe</li>
+                        <li><i class="icofont icofont-ui-check"></i>phẫu thuật</li>
+                        <li><i class="icofont icofont-ui-check"></i>theo dõi sức khỏe</li>
+                        <li><i class="icofont icofont-ui-check"></i>cấp phát thuốc</li>
+                        <li><i class="icofont icofont-ui-check"></i>khám định kỳ đến khi khỏi bệnh</li>
                     </ul>
                     <div class="table-bottom">
-                        <a class="btn" href="#">Book Now</a>
+                        <a class="btn" href="#">Đặt ngay</a>
                     </div>
                     <!-- Table Bottom -->
                 </div>
@@ -423,19 +423,19 @@
                         </div>
                         <h4 class="title">Làm trắng răng</h4>
                         <div class="price">
-                            <p class="amount">$299<span>/ Per Visit</span></p>
+                            <p class="amount">1.000.000 VNĐ<span></span></p>
                         </div>
                     </div>
                     <!-- Table List -->
                     <ul class="table-list">
-                        <li><i class="icofont icofont-ui-check"></i>Lorem ipsum dolor sit</li>
-                        <li><i class="icofont icofont-ui-check"></i>Cubitur sollicitudin fentum</li>
-                        <li><i class="icofont icofont-ui-check"></i> Nullam interdum enim</li>
-                        <li><i class="icofont icofont-ui-check"></i>Donec ultricies metus</li>
-                        <li><i class="icofont icofont-ui-check"></i>Pellentesque eget nibh</li>
+                        <li><i class="icofont icofont-ui-check"></i>Kiểm tra tình trạng răng</li>
+                        <li><i class="icofont icofont-ui-check"></i>Vệ sinh răng miệng</li>
+                        <li><i class="icofont icofont-ui-check"></i> Cách ly bảo vệ môi và nướu</li>
+                        <li><i class="icofont icofont-ui-check"></i>Bôi thuốc tẩy trắng lên răng</li>
+                        <li><i class="icofont icofont-ui-check"></i>Chiếu đèn laser làm trắng</li>
                     </ul>
                     <div class="table-bottom">
-                        <a class="btn" href="#">Book Now</a>
+                        <a class="btn" href="#">Đặt ngay</a>
                     </div>
                     <!-- Table Bottom -->
                 </div>
@@ -449,18 +449,18 @@
                         <div class="icon">
                             <i class="icofont-heart-beat"></i>
                         </div>
-                        <h4 class="title"> Phẫu thuật tim</h4>
+                        <h4 class="title"> Khám tim</h4>
                         <div class="price">
-                            <p class="amount">$399<span>/ Per Visit</span></p>
+                            <p class="amount">1.000.000 VNĐ<span></span></p>
                         </div>
                     </div>
                     <!-- Table List -->
                     <ul class="table-list">
-                        <li><i class="icofont icofont-ui-check"></i>Lorem ipsum dolor sit</li>
-                        <li><i class="icofont icofont-ui-check"></i>Cubitur sollicitudin fentum</li>
-                        <li><i class="icofont icofont-ui-check"></i>Nullam interdum enim</li>
-                        <li><i class="icofont icofont-ui-check"></i>Donec ultricies metus</li>
-                        <li><i class="icofont icofont-ui-check"></i>Pellentesque eget nibh</li>
+                        <li><i class="icofont icofont-ui-check"></i>Chẩn đoán và Đánh giá</li>
+                        <li><i class="icofont icofont-ui-check"></i>Kiểm tra lâm sàng</li>
+                        <li><i class="icofont icofont-ui-check"></i>Xét nghiệm máu</li>
+                        <li><i class="icofont icofont-ui-check"></i>Xét nghiệm điện tâm đồ (ECG)</li>
+                        <li><i class="icofont icofont-ui-check"></i>Siêu âm tim</li>
                     </ul>
                     <div class="table-bottom">
                         <a class="btn" href="#">Book Now</a>
@@ -588,9 +588,8 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="section-title">
-                    <h2>Chúng tôi luôn sẵn sàng hỗ trợ bạn. Đặt lịch hẹn ngay bây giờ.</h2>
+                    <h2 style="font-family: Roboto;">Chúng tôi luôn sẵn sàng hỗ trợ bạn.<br> Đặt lịch hẹn ngay bây giờ.</h2>
                     <img src="{{('public/frontend/img/section-img.png')}}" alt="#">
-                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>
                 </div>
             </div>
         </div>
