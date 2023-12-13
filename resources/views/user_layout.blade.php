@@ -85,7 +85,7 @@ rel="stylesheet"
 		<!-- Get Pro Button -->
 		<ul class="pro-features">
 			<a class="get-pro" href="#">Tài khoản</a>
-			<li class="big-title">Pro Version Available on Themeforest</li>
+			<li class="big-title"></li>
 
 
             <div class="button">
@@ -93,7 +93,7 @@ rel="stylesheet"
                     @csrf
                     <button type="submit" class="btn">Đăng xuất</button>
                 </form>
-                <a href="/thongtin" target="_blank" class="btn">Buy Pro Version</a>
+                <a href="/thongtin" target="_blank" class="btn">Chỉnh sửa thông tin</a>
             </div>
 
 
@@ -101,8 +101,8 @@ rel="stylesheet"
 
 		</ul>
 
-		<!-- Header Area -->
-		<header class="header" >
+		<!-- End Header Area -->
+        <header class="header" >
 			<!-- Topbar -->
 			<div class="topbar">
 				<div class="container">
@@ -137,7 +137,7 @@ rel="stylesheet"
 							<div class="col-lg-3 col-md-3 col-12">
 								<!-- Start Logo -->
 								<div class="logo">
-									<a href="index.html"><img src="{{('public/frontend/img/logo.png')}}" alt="#"></a>
+                                    <a href="index.html"><img src="{{('public/frontend/img/anhdaidien.png')}}" width="220" alt="#"></a>
 								</div>
 								<!-- End Logo -->
 								<!-- Mobile Nav -->
@@ -149,19 +149,19 @@ rel="stylesheet"
 								<div class="main-menu">
 									<nav class="navigation">
 										<ul class="nav menu">
-											<li class="active"><a href="{{URL::to('/user-home')}}">Trang Chủ</a>
+											<li class="active"><a href="{{URL::to('/')}}">Trang Chủ</a>
 												{{-- <ul class="dropdown">
 													<li><a href="index.html">Home Page 1</a></li>
 												</ul> --}}
 											</li>
 											<li><a href="{{URL::to('/user-hien-thi-bac-si')}}">Bác Sĩ</a></li>
 											<li><a href="{{URL::to('/user-dat-lich')}}">Đặt Lịch{{--<i class="icofont-rounded-down"></i>--}} </a></li>
-											<li><a href="{{URL::to('/user-cuoc-hen')}}">Cuộc Hẹn</a>
+											<li><a href="{{URL::to('/user-hien-thi-thuoc')}}">Tin Tức</a>
 												{{-- <ul class="dropdown">
 													<li><a href="404.html">404 Error</a></li>
 												</ul> --}}
 											</li>
-											<li><a href="#">Chat AI {{--<i class="icofont-rounded-down"></i>--}} </a>
+											<li><a href="{{URL::to('/dang-nhap')}}">Chat AI {{--<i class="icofont-rounded-down"></i>--}} </a>
 												{{-- <ul class="dropdown">
 													<li><a href="blog-single.html">Blog Details</a></li>
 												</ul> --}}
@@ -171,12 +171,15 @@ rel="stylesheet"
                                             @else
                                                 Xin chào, Khách
                                             @endif</a></li>
-                                      </nav>
+										</ul>
+									</nav>
 								</div>
 								<!--/ End Main Menu -->
 							</div>
 							<div class="col-lg-2 col-12">
-
+								<div class="get-quote">
+									<a href="{{URL::to('/dang-nhap')}}" class="btn">Đặt Lịch Khám</a>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -184,11 +187,8 @@ rel="stylesheet"
 			</div>
 			<!--/ End Header Inner -->
 		</header>
-		<!-- End Header Area -->
-
         @yield('content')
 
-		<!-- Footer Area -->
 		<footer id="footer" class="footer ">
 			<!-- Footer Top -->
 			<div class="footer-top">
@@ -196,8 +196,8 @@ rel="stylesheet"
 					<div class="row">
 						<div class="col-lg-3 col-md-6 col-12">
 							<div class="single-footer">
-								<h2>About Us</h2>
-								<p>Lorem ipsum dolor sit am consectetur adipisicing elit do eiusmod tempor incididunt ut labore dolore magna.</p>
+								<h2>Về chúng tôi</h2>
+								<p>Chúng tôi cung cấp các dịch vụ một cách đầy đủ nhất</p>
 								<!-- Social -->
 								<ul class="social">
 									<li><a href="#"><i class="icofont-facebook"></i></a></li>
@@ -211,24 +211,24 @@ rel="stylesheet"
 						</div>
 						<div class="col-lg-3 col-md-6 col-12">
 							<div class="single-footer f-link">
-								<h2>Quick Links</h2>
+								<h2>Đường dẫn nhanh</h2>
 								<div class="row">
 									<div class="col-lg-6 col-md-6 col-12">
 										<ul>
-											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Home</a></li>
-											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>About Us</a></li>
-											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Services</a></li>
-											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Our Cases</a></li>
-											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Other Links</a></li>
+											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Trang chủ</a></li>
+											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Bác sĩ</a></li>
+											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Đặt lịch</a></li>
+                                            <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Chat AI</a></li>
+											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Đăng nhật</a></li>
 										</ul>
 									</div>
 									<div class="col-lg-6 col-md-6 col-12">
 										<ul>
-											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Consuling</a></li>
-											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Finance</a></li>
-											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Testimonials</a></li>
+											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Liên hệ</a></li>
+											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Giới thiệu</a></li>
+											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Điện thoại</a></li>
 											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>FAQ</a></li>
-											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Contact Us</a></li>
+											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Địa chỉ</a></li>
 										</ul>
 									</div>
 								</div>
@@ -236,21 +236,20 @@ rel="stylesheet"
 						</div>
 						<div class="col-lg-3 col-md-6 col-12">
 							<div class="single-footer">
-								<h2>Open Hours</h2>
-								<p>Lorem ipsum dolor sit ame consectetur adipisicing elit do eiusmod tempor incididunt.</p>
+								<h2>Giờ mở</h2>
+								<p>470-Trần Đại Nghĩa-Phường Hòa Quý-Quận Ngũ Hành Sơn.</p>
 								<ul class="time-sidual">
-									<li class="day">Monday - Fridayp <span>8.00-20.00</span></li>
-									<li class="day">Saturday <span>9.00-18.30</span></li>
-									<li class="day">Monday - Thusday <span>9.00-15.00</span></li>
+									<li class="day">Thứ hai - Thứ bảy <span>8.00-16.00</span></li>
+
 								</ul>
 							</div>
 						</div>
 						<div class="col-lg-3 col-md-6 col-12">
 							<div class="single-footer">
-								<h2>Newsletter</h2>
-								<p>subscribe to our newsletter to get allour news in your inbox.. Lorem ipsum dolor sit amet, consectetur adipisicing elit,</p>
+								<h2>Bản tin</h2>
+								<p>Đăng kí để nhận các thông tin mới nhất </p>
 								<form action="mail/mail.php" method="get" target="_blank" class="newsletter-inner">
-									<input name="email" placeholder="Email Address" class="common-input" onfocus="this.placeholder = ''"
+									<input name="email" placeholder="Địa chỉ Email" class="common-input" onfocus="this.placeholder = ''"
 										onblur="this.placeholder = 'Your email address'" required="" type="email">
 									<button class="button"><i class="icofont icofont-paper-plane"></i></button>
 								</form>
@@ -266,7 +265,7 @@ rel="stylesheet"
 					<div class="row">
 						<div class="col-lg-12 col-md-12 col-12">
 							<div class="copyright-content">
-								<p>© Copyright 2018  |  All Rights Reserved by <a href="https://www.wpthemesgrid.com" target="_blank">wpthemesgrid.com</a> </p>
+								<p>© Copyright 2023  |  được làm bởi <a href="" target="_blank">Nhật đẹp trai-phước xấu gái</a> </p>
 							</div>
 						</div>
 					</div>

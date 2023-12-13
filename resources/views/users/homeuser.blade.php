@@ -5,16 +5,16 @@
 <section class="slider">
     <div class="hero-slider">
         <!-- Start Single Slider -->
-        <div class="single-slider" style="background-image:url({{('public/frontend/img/slider2.jpg')}})">
+        <div class="single-slider" style="background-image:url({{('public/frontend/img/Medical+Banner.jpg')}})">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-7">
                         <div class="text">
-                            <h1>We Provide <span>Medical</span> Services That You Can <span>Trust!</span></h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed nisl pellentesque, faucibus libero eu, gravida quam. </p>
+                            <h1>Chúng tôi cung cấp dịch vụ <span>Y tế</span> mà bạn có thể <span>tin tưởng!</span></h1>
+                            <p>Đăng nhập để có trải nghiệm tốt nhất</p>
                             <div class="button">
-                                <a href="#" class="btn">Get Appointment</a>
-                                <a href="#" class="btn primary">Learn More</a>
+                                <a href="{{URL::to('/dang-nhap')}}" class="btn">Đặt lịch khám</a>
+                                <a href="#" class="btn primary">Xem thêm</a>
                             </div>
                         </div>
                     </div>
@@ -23,16 +23,16 @@
         </div>
         <!-- End Single Slider -->
         <!-- Start Single Slider -->
-        <div class="single-slider" style="background-image:url({{('public/frontend/img/slider.jpg')}})">
+        <div class="single-slider" style="background-image:url({{('public/frontend/img/doctor+banner.jpeg')}})">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-7">
                         <div class="text">
-                            <h1>We Provide <span>Medical</span> Services That You Can <span>Trust!</span></h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed nisl pellentesque, faucibus libero eu, gravida quam. </p>
+                            <h1>Chúng tôi cung cấp dịch vụ <span>Y tế</span> mà bạn có thể <span>tin tưởng!</span></h1>
+                            <p>Đăng nhập để có trải nghiệm tốt nhất</p>
                             <div class="button">
-                                <a href="#" class="btn">Get Appointment</a>
-                                <a href="#" class="btn primary">About Us</a>
+                                <a href="{{URL::to('/dang-nhap')}}" class="btn">Đặt lịch khám</a>
+                                <a href="#" class="btn primary">Xem thêm</a>
                             </div>
                         </div>
                     </div>
@@ -41,16 +41,16 @@
         </div>
         <!-- Start End Slider -->
         <!-- Start Single Slider -->
-        <div class="single-slider" style="background-image:url({{('public/frontend/img/slider3.jpg')}})">
+        <div class="single-slider" style="background-image:url({{('public/frontend/img/de.jpg')}})">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-7">
                         <div class="text">
-                            <h1>We Provide <span>Medical</span> Services That You Can <span>Trust!</span></h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed nisl pellentesque, faucibus libero eu, gravida quam. </p>
+                            <h1>Chúng tôi cung cấp dịch vụ <span>Y tế</span> mà bạn có thể <span>tin tưởng!</span></h1>
+                            <p>Đăng nhập để có trải nghiệm tốt nhất</p>
                             <div class="button">
-                                <a href="#" class="btn">Get Appointment</a>
-                                <a href="#" class="btn primary">Conatct Now</a>
+                                <a href="{{URL::to('/dang-nhap')}}" class="btn">Đặt lịch khám</a>
+                                <a href="#" class="btn primary">Xem thêm</a>
                             </div>
                         </div>
                     </div>
@@ -75,10 +75,11 @@
                                 <i class="fa fa-ambulance"></i>
                             </div>
                             <div class="single-content">
-                                <span>Lorem Amet</span>
-                                <h4>Emergency Cases</h4>
-                                <p>Lorem ipsum sit amet consectetur adipiscing elit. Vivamus et erat in lacus convallis sodales.</p>
-                                <a href="#">LEARN MORE<i class="fa fa-long-arrow-right"></i></a>
+                                <span>Linh động-kịp thời</span>
+                                <h4>Cấp cứu</h4>
+                                <p>Trong trường hợp cấp cứu người bị thương hãy gọi cho chúng tôi
+                                </p>
+                                <a href="#">Xem chi tiết<i class="fa fa-long-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -91,10 +92,10 @@
                                 <i class="icofont-prescription"></i>
                             </div>
                             <div class="single-content">
-                                <span>Fusce Porttitor</span>
-                                <h4>Doctors Timetable</h4>
-                                <p>Lorem ipsum sit amet consectetur adipiscing elit. Vivamus et erat in lacus convallis sodales.</p>
-                                <a href="#">LEARN MORE<i class="fa fa-long-arrow-right"></i></a>
+                                <span>Kinh nghiệm</span>
+                                <h4>Đội ngũ bác sĩ</h4>
+                                <p>Đội ngũ y bác sĩ dày dặn kinh nghiệm,đa lĩnh vực</p>
+                                <a href="#">Xem chi tiết<i class="fa fa-long-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -107,14 +108,11 @@
                                 <i class="icofont-ui-clock"></i>
                             </div>
                             <div class="single-content">
-                                <span>Donec luctus</span>
-                                <h4>Opening Hours</h4>
-                                <ul class="time-sidual">
-                                    <li class="day">Monday - Fridayp <span>8.00-20.00</span></li>
-                                    <li class="day">Saturday <span>9.00-18.30</span></li>
-                                    <li class="day">Monday - Thusday <span>9.00-15.00</span></li>
-                                </ul>
-                                <a href="#">LEARN MORE<i class="fa fa-long-arrow-right"></i></a>
+                                <span>Dịch vụ</span>
+                                <h4>Đặt lịch khám</h4>
+                                    <p>Monday - Saturday 8.00-18.00<br>
+                                khung giờ linh hoạt</p>
+                                <a href="#">Xem chi tiết<i class="fa fa-long-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -131,9 +129,8 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="section-title">
-                    <h2>We Are Always Ready to Help You & Your Family</h2>
-                    <img src="img/section-img.png" alt="#">
-                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>
+                    <h2 style="font-family: Roboto;">Chúng tôi luôn sẵn sàng giúp đỡ bạn dù cho bạn là bất kỳ ai</h2>
+                    <img src="{{('public/frontend/img/section-img.png')}}" alt="#">
                 </div>
             </div>
         </div>
@@ -144,8 +141,8 @@
                     <div class="signle-icon">
                         <i class="icofont icofont-ambulance-cross"></i>
                     </div>
-                    <h3>Emergency Help</h3>
-                    <p>Lorem ipsum sit, consectetur adipiscing elit. Maecenas mi quam vulputate.</p>
+                    <h3>Trợ giúp khẩn cấp</h3>
+                    <p>Nhanh chóng,kịp thời</p>
                 </div>
                 <!-- End Single features -->
             </div>
@@ -155,8 +152,8 @@
                     <div class="signle-icon">
                         <i class="icofont icofont-medical-sign-alt"></i>
                     </div>
-                    <h3>Enriched Pharmecy</h3>
-                    <p>Lorem ipsum sit, consectetur adipiscing elit. Maecenas mi quam vulputate.</p>
+                    <h3>Dược phẩm phong phú</h3>
+                    <p>Đa dạng các loại thuôc cho nhiều bệnh khác nhau</p>
                 </div>
                 <!-- End Single features -->
             </div>
@@ -166,8 +163,8 @@
                     <div class="signle-icon">
                         <i class="icofont icofont-stethoscope"></i>
                     </div>
-                    <h3>Medical Treatment</h3>
-                    <p>Lorem ipsum sit, consectetur adipiscing elit. Maecenas mi quam vulputate.</p>
+                    <h3>Điều trị y tế</h3>
+                    <p>Ân cần,phục vụ người bệnh một cách tốt nhất </p>
                 </div>
                 <!-- End Single features -->
             </div>
@@ -185,8 +182,8 @@
                 <div class="single-fun">
                     <i class="icofont icofont-home"></i>
                     <div class="content">
-                        <span class="counter">3468</span>
-                        <p>Hospital Rooms</p>
+                        <span class="counter">50</span>
+                        <p>Quy mô bệnh viện</p>
                     </div>
                 </div>
                 <!-- End Single Fun -->
@@ -197,7 +194,7 @@
                     <i class="icofont icofont-user-alt-3"></i>
                     <div class="content">
                         <span class="counter">557</span>
-                        <p>Specialist Doctors</p>
+                        <p>Đội ngũ chuyên gia</p>
                     </div>
                 </div>
                 <!-- End Single Fun -->
@@ -207,8 +204,8 @@
                 <div class="single-fun">
                     <i class="icofont-simple-smile"></i>
                     <div class="content">
-                        <span class="counter">4379</span>
-                        <p>Happy Patients</p>
+                        <span class="counter">1000</span>
+                        <p>Đánh giá hài lòng</p>
                     </div>
                 </div>
                 <!-- End Single Fun -->
@@ -219,7 +216,7 @@
                     <i class="icofont icofont-table"></i>
                     <div class="content">
                         <span class="counter">32</span>
-                        <p>Years of Experience</p>
+                        <p>Số lịch đã đặt</p>
                     </div>
                 </div>
                 <!-- End Single Fun -->
@@ -229,66 +226,7 @@
 </div>
 <!--/ End Fun-facts -->
 
-<!-- Start Why choose -->
-<section class="why-choose section" >
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="section-title">
-                    <h2>We Offer Different Services To Improve Your Health</h2>
-                    <img src="{{('public/frontend/img/section-img.png')}}" alt="#">
-                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-6 col-12">
-                <!-- Start Choose Left -->
-                <div class="choose-left">
-                    <h3>Who We Are</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pharetra antege vel est lobortis, a commodo magna rhoncus. In quis nisi non emet quam pharetra commodo. </p>
-                    <p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. </p>
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <ul class="list">
-                                <li><i class="fa fa-caret-right"></i>Maecenas vitae luctus nibh. </li>
-                                <li><i class="fa fa-caret-right"></i>Duis massa massa.</li>
-                                <li><i class="fa fa-caret-right"></i>Aliquam feugiat interdum.</li>
-                            </ul>
-                        </div>
-                        <div class="col-lg-6">
-                            <ul class="list">
-                                <li><i class="fa fa-caret-right"></i>Maecenas vitae luctus nibh. </li>
-                                <li><i class="fa fa-caret-right"></i>Duis massa massa.</li>
-                                <li><i class="fa fa-caret-right"></i>Aliquam feugiat interdum.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Choose Left -->
-            </div>
-            <div class="col-lg-6 col-12">
-                <!-- Start Choose Rights -->
-                <div class="choose-right">
-                    <div class="video-image">
-                        <!-- Video Animation -->
-                        <div class="promo-video">
-                            <div class="waves-block">
-                                <div class="waves wave-1"></div>
-                                <div class="waves wave-2"></div>
-                                <div class="waves wave-3"></div>
-                            </div>
-                        </div>
-                        <!--/ End Video Animation -->
-                        <a href="https://www.youtube.com/watch?v=RFVXy6CRVR4" class="video video-popup mfp-iframe"><i class="fa fa-play"></i></a>
-                    </div>
-                </div>
-                <!-- End Choose Rights -->
-            </div>
-        </div>
-    </div>
-</section>
-<!--/ End Why choose -->
+
 
 <!-- Start Call to action -->
 <section class="call-action overlay" data-stellar-background-ratio="0.5">
@@ -296,11 +234,10 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-12">
                 <div class="content">
-                    <h2>Do you need Emergency Medical Care? Call @ 1234 56789</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque porttitor dictum turpis nec gravida.</p>
+                    <h2>Bạn cần chăm sóc y tế khẩn cấp? <br>gọi 0972 087 664</h2><br>
                     <div class="button">
-                        <a href="#" class="btn">Contact Now</a>
-                        <a href="#" class="btn second">Learn More<i class="fa fa-long-arrow-right"></i></a>
+                        <a href="#" class="btn">Liên hệ bây giờ</a>
+                        <a href="#" class="btn second">Xem chi tiết<i class="fa fa-long-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -310,7 +247,7 @@
 <!--/ End Call to action -->
 
 <!-- Start portfolio -->
-<section class="portfolio section" >
+{{-- <section class="portfolio section" >
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -362,7 +299,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> --}}
 <!--/ End portfolio -->
 
 <!-- Start service -->
@@ -371,9 +308,8 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="section-title">
-                    <h2>We Offer Different Services To Improve Your Health</h2>
-                    <img src="img/section-img.png" alt="#">
-                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>
+                    <h2 style="font-family: Roboto;">Chúng tôi cung cấp các dịch vụ khác nhau để cải thiện sức khỏe của bạn</h2>
+                    <img src="{{('public/frontend/img/section-img.png')}}" alt="#">
                 </div>
             </div>
         </div>
@@ -382,8 +318,8 @@
                 <!-- Start Single Service -->
                 <div class="single-service">
                     <i class="icofont icofont-prescription"></i>
-                    <h4><a href="service-details.html">General Treatment</a></h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>
+                    <h4><a href="service-details.html">Phương pháp điều trị </a></h4>
+                    <p>Hướng dẫn hay quy tắc tổng quát về cách điều trị một tình trạng bệnh nhất định mà không cần đến chi tiết cụ thể của từng trường hợp.  </p>
                 </div>
                 <!-- End Single Service -->
             </div>
@@ -391,8 +327,8 @@
                 <!-- Start Single Service -->
                 <div class="single-service">
                     <i class="icofont icofont-tooth"></i>
-                    <h4><a href="service-details.html">Teeth Whitening</a></h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>
+                    <h4><a href="service-details.html">Tăng sáng răng</a></h4>
+                    <p>Sử dụng các phương pháp và sản phẩm nhất định để làm cho màu sắc của răng trở nên trắng sáng hơn.</p>
                 </div>
                 <!-- End Single Service -->
             </div>
@@ -400,8 +336,8 @@
                 <!-- Start Single Service -->
                 <div class="single-service">
                     <i class="icofont icofont-heart-alt"></i>
-                    <h4><a href="service-details.html">Heart Surgery</a></h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>
+                    <h4><a href="service-details.html">Phẫu thuật Tim</a></h4>
+                    <p>Phẫu thuật tim bao gồm các thủ tục phẫu thuật trên tim hoặc các mạch máu lớn được thực hiện bởi bác sĩ phẫu thuật tim và ngực.</p>
                 </div>
                 <!-- End Single Service -->
             </div>
@@ -409,8 +345,8 @@
                 <!-- Start Single Service -->
                 <div class="single-service">
                     <i class="icofont icofont-listening"></i>
-                    <h4><a href="service-details.html">Ear Treatment</a></h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>
+                    <h4><a href="service-details.html">Điều Trị Tai</a></h4>
+                    <p>Điều trị tai bao gồm chăm sóc y tế và các biện pháp can thiệp liên quan đến tai và khả năng nghe.</p>
                 </div>
                 <!-- End Single Service -->
             </div>
@@ -418,8 +354,8 @@
                 <!-- Start Single Service -->
                 <div class="single-service">
                     <i class="icofont icofont-eye-alt"></i>
-                    <h4><a href="service-details.html">Vision Problems</a></h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>
+                    <h4><a href="service-details.html">Vấn đề Thị lực</a></h4>
+                    <p>Vấn đề thị lực là các tình trạng ảnh hưởng đến tầm nhìn và sự nhận thức hình ảnh của mắt.</p>
                 </div>
                 <!-- End Single Service -->
             </div>
@@ -427,8 +363,8 @@
                 <!-- Start Single Service -->
                 <div class="single-service">
                     <i class="icofont icofont-blood"></i>
-                    <h4><a href="service-details.html">Blood Transfusion</a></h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>
+                    <h4><a href="service-details.html">Truyền Máu</a></h4>
+                    <p>Truyền máu là quá trình chuyển giao máu hoặc các thành phần máu vào hệ tuần hoàn máu của người.</p>
                 </div>
                 <!-- End Single Service -->
             </div>
@@ -443,9 +379,8 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="section-title">
-                    <h2>We Provide You The Best Treatment In Resonable Price</h2>
+                    <h2 style="font-family: Roboto;">Chúng tôi cung cấp cho bạn phương pháp điều trị tốt nhất với giá cả hợp lí</h2>
                     <img src="{{('public/frontend/img/section-img.png')}}" alt="#">
-                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>
                 </div>
             </div>
         </div>
@@ -458,21 +393,21 @@
                         <div class="icon">
                             <i class="icofont icofont-ui-cut"></i>
                         </div>
-                        <h4 class="title">Plastic Suggery</h4>
+                        <h4 class="title">Phẫu thuật mắt</h4>
                         <div class="price">
-                            <p class="amount">$199<span>/ Per Visit</span></p>
+                            <p class="amount">1.999.000 VNĐ<span></span></p>
                         </div>
                     </div>
                     <!-- Table List -->
                     <ul class="table-list">
-                        <li><i class="icofont icofont-ui-check"></i>Lorem ipsum dolor sit</li>
-                        <li><i class="icofont icofont-ui-check"></i>Cubitur sollicitudin fentum</li>
-                        <li class="cross"><i class="icofont icofont-ui-close"></i>Nullam interdum enim</li>
-                        <li class="cross"><i class="icofont icofont-ui-close"></i>Donec ultricies metus</li>
-                        <li class="cross"><i class="icofont icofont-ui-close"></i>Pellentesque eget nibh</li>
+                        <li><i class="icofont icofont-ui-check"></i>Chuẩn đoán sức khỏe</li>
+                        <li><i class="icofont icofont-ui-check"></i>phẫu thuật</li>
+                        <li><i class="icofont icofont-ui-check"></i>theo dõi sức khỏe</li>
+                        <li><i class="icofont icofont-ui-check"></i>cấp phát thuốc</li>
+                        <li><i class="icofont icofont-ui-check"></i>khám định kỳ đến khi khỏi bệnh</li>
                     </ul>
                     <div class="table-bottom">
-                        <a class="btn" href="#">Book Now</a>
+                        <a class="btn" href="#">Đặt ngay</a>
                     </div>
                     <!-- Table Bottom -->
                 </div>
@@ -486,21 +421,21 @@
                         <div class="icon">
                             <i class="icofont icofont-tooth"></i>
                         </div>
-                        <h4 class="title">Teeth Whitening</h4>
+                        <h4 class="title">Làm trắng răng</h4>
                         <div class="price">
-                            <p class="amount">$299<span>/ Per Visit</span></p>
+                            <p class="amount">1.000.000 VNĐ<span></span></p>
                         </div>
                     </div>
                     <!-- Table List -->
                     <ul class="table-list">
-                        <li><i class="icofont icofont-ui-check"></i>Lorem ipsum dolor sit</li>
-                        <li><i class="icofont icofont-ui-check"></i>Cubitur sollicitudin fentum</li>
-                        <li><i class="icofont icofont-ui-check"></i>Nullam interdum enim</li>
-                        <li class="cross"><i class="icofont icofont-ui-close"></i>Donec ultricies metus</li>
-                        <li class="cross"><i class="icofont icofont-ui-close"></i>Pellentesque eget nibh</li>
+                        <li><i class="icofont icofont-ui-check"></i>Kiểm tra tình trạng răng</li>
+                        <li><i class="icofont icofont-ui-check"></i>Vệ sinh răng miệng</li>
+                        <li><i class="icofont icofont-ui-check"></i> Cách ly bảo vệ môi và nướu</li>
+                        <li><i class="icofont icofont-ui-check"></i>Bôi thuốc tẩy trắng lên răng</li>
+                        <li><i class="icofont icofont-ui-check"></i>Chiếu đèn laser làm trắng</li>
                     </ul>
                     <div class="table-bottom">
-                        <a class="btn" href="#">Book Now</a>
+                        <a class="btn" href="#">Đặt ngay</a>
                     </div>
                     <!-- Table Bottom -->
                 </div>
@@ -514,18 +449,18 @@
                         <div class="icon">
                             <i class="icofont-heart-beat"></i>
                         </div>
-                        <h4 class="title">Heart Suggery</h4>
+                        <h4 class="title"> Khám tim</h4>
                         <div class="price">
-                            <p class="amount">$399<span>/ Per Visit</span></p>
+                            <p class="amount">1.000.000 VNĐ<span></span></p>
                         </div>
                     </div>
                     <!-- Table List -->
                     <ul class="table-list">
-                        <li><i class="icofont icofont-ui-check"></i>Lorem ipsum dolor sit</li>
-                        <li><i class="icofont icofont-ui-check"></i>Cubitur sollicitudin fentum</li>
-                        <li><i class="icofont icofont-ui-check"></i>Nullam interdum enim</li>
-                        <li><i class="icofont icofont-ui-check"></i>Donec ultricies metus</li>
-                        <li><i class="icofont icofont-ui-check"></i>Pellentesque eget nibh</li>
+                        <li><i class="icofont icofont-ui-check"></i>Chẩn đoán và Đánh giá</li>
+                        <li><i class="icofont icofont-ui-check"></i>Kiểm tra lâm sàng</li>
+                        <li><i class="icofont icofont-ui-check"></i>Xét nghiệm máu</li>
+                        <li><i class="icofont icofont-ui-check"></i>Xét nghiệm điện tâm đồ (ECG)</li>
+                        <li><i class="icofont icofont-ui-check"></i>Siêu âm tim</li>
                     </ul>
                     <div class="table-bottom">
                         <a class="btn" href="#">Book Now</a>
@@ -542,7 +477,7 @@
 
 
 <!-- Start Blog Area -->
-<section class="blog section" id="blog">
+{{-- <section class="blog section" id="blog">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -604,11 +539,11 @@
             </div>
         </div>
     </div>
-</section>
+</section> --}}
 <!-- End Blog Area -->
 
 <!-- Start clients -->
-<div class="clients overlay">
+{{-- <div class="clients overlay">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-12">
@@ -644,7 +579,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 <!--/Ens clients -->
 
 <!-- Start Appointment -->
@@ -653,9 +588,8 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="section-title">
-                    <h2>We Are Always Ready to Help You. Book An Appointment</h2>
-                    <img src="img/section-img.png" alt="#">
-                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>
+                    <h2 style="font-family: Roboto;">Chúng tôi luôn sẵn sàng hỗ trợ bạn.<br> Đặt lịch hẹn ngay bây giờ.</h2>
+                    <img src="{{('public/frontend/img/section-img.png')}}" alt="#">
                 </div>
             </div>
         </div>
@@ -665,7 +599,7 @@
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-12">
                             <div class="form-group">
-                                <input name="name" type="text" placeholder="Name">
+                                <input name="name" type="text" placeholder="Tên">
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-12">
@@ -675,10 +609,10 @@
                         </div>
                         <div class="col-lg-6 col-md-6 col-12">
                             <div class="form-group">
-                                <input name="phone" type="text" placeholder="Phone">
+                                <input name="phone" type="text" placeholder="Số điện thoại">
                             </div>
                         </div>
-                        <div class="col-lg-6 col-md-6 col-12">
+                        {{-- <div class="col-lg-6 col-md-6 col-12">
                             <div class="form-group">
                                 <div class="nice-select form-control wide" tabindex="0"><span class="current">Department</span>
                                     <ul class="list">
@@ -690,10 +624,15 @@
                                     </ul>
                                 </div>
                             </div>
+                        </div> --}}
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <div class="form-group">
+                                <input name="phone" type="text" placeholder="Địa chỉ">
+                            </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-12">
                             <div class="form-group">
-                                <div class="nice-select form-control wide" tabindex="0"><span class="current">Doctor</span>
+                                <div class="nice-select form-control wide" tabindex="0"><span class="current">Bác sĩ</span>
                                     <ul class="list">
                                         <li data-value="1" class="option selected ">Doctor</li>
                                         <li data-value="2" class="option">Dr. Akther Hossain</li>
@@ -705,12 +644,12 @@
                         </div>
                         <div class="col-lg-6 col-md-6 col-12">
                             <div class="form-group">
-                                <input type="text" placeholder="Date" id="datepicker">
+                                <input type="text" placeholder="Ngày" id="datepicker">
                             </div>
                         </div>
                         <div class="col-lg-12 col-md-12 col-12">
                             <div class="form-group">
-                                <textarea name="message" placeholder="Write Your Message Here....."></textarea>
+                                <textarea name="message" placeholder="Viết lời nhắn tại đây....."></textarea>
                             </div>
                         </div>
                     </div>
@@ -718,19 +657,18 @@
                         <div class="col-lg-5 col-md-4 col-12">
                             <div class="form-group">
                                 <div class="button">
-                                    <button type="submit" class="btn">Book An Appointment</button>
+                                    <button type="submit" class="btn">Đặt lịch hẹn</button>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-7 col-md-8 col-12">
-                            <p>( We will be confirm by an Text Message )</p>
                         </div>
                     </div>
                 </form>
             </div>
             <div class="col-lg-6 col-md-12 ">
                 <div class="appointment-image">
-                    <img src="img/contact-img.png" alt="#">
+                    <img src="{{('public/frontend/img/contact-img.png')}}" alt="#">
                 </div>
             </div>
         </div>
@@ -739,14 +677,13 @@
 <!-- End Appointment -->
 
 <!-- Start Newsletter Area -->
-<section class="newsletter section">
+{{-- <section class="newsletter section">
     <div class="container">
         <div class="row ">
             <div class="col-lg-6  col-12">
                 <!-- Start Newsletter Form -->
                 <div class="subscribe-text ">
-                    <h6>Sign up for newsletter</h6>
-                    <p class="">Cu qui soleat partiendo urbanitas. Eum aperiri indoctum eu,<br> homero alterum.</p>
+                    <h6>Đăng kí để nhận bản tin</h6>
                 </div>
                 <!-- End Newsletter Form -->
             </div>
@@ -763,6 +700,6 @@
             </div>
         </div>
     </div>
-</section>
+</section> --}}
 <!-- /End Newsletter Area -->
 @endsection

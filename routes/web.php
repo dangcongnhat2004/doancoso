@@ -29,6 +29,7 @@ use Illuminate\Support\Facades\Route;
     Route::get('/user-dat-lich', [UserController::class, 'hienthilich']);
     Route::post('/user-dat-lich', [UserController::class, 'datlich']);
     Route::get('/user-cuoc-hen', [UserController::class, 'cuochen']);
+    Route::get('/user-hien-thi-thuoc', [UserController::class, 'hienthithuoc']);
 
 
 //admin
