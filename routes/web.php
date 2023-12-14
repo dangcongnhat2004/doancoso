@@ -3,6 +3,8 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ResetPasswordController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,6 +23,7 @@ use Illuminate\Support\Facades\Route;
     Route::get('/', [UserController::class, 'home']);
     Route::post('/dang-xuat', [UserController::class, 'logout'])->name('logout');
     Route::get('/dang-nhap', [UserController::class, 'loginuser']);
+    Route::get('/quen-mat-khau', [UserController::class, 'forget']);
     Route::get('/user-home', [UserController::class, 'homepage']);
     Route::post('/user-home', [UserController::class, 'login']);
     Route::get('/dang-ki', [UserController::class, 'register'])->name('register');
@@ -31,6 +34,8 @@ use Illuminate\Support\Facades\Route;
     Route::get('/user-cuoc-hen', [UserController::class, 'cuochen']);
     Route::get('/user-hien-thi-thuoc', [UserController::class, 'hienthithuoc']);
 
+    Route::get('/reset-password', [ResetPasswordController::class, 'showForm']);
+    Route::post('/reset-password', [ResetPasswordController::class, 'sendResetLink'])->name('send.reset.link');
 
 //admin
 Route::get('/dashboard', [AdminController::class, 'homeadmin']);

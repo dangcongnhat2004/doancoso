@@ -70,7 +70,7 @@ rel="stylesheet"
     <input class="form-check-input" type="checkbox" value="" id="form1Example3" checked />
     <label class="form-check-label" for="form1Example3">Lưu Mật Khẩu</label>
   </div>
-  <a href="#!">Quên Mật Khẩu</a> Hoặc <a href="{{URL::to('/dang-ki')}}">Bạn chưa có tài khoản?</a><br>
+  <a href="{{URL::to('/quen-mat-khau')}}">Quên Mật Khẩu</a> Hoặc <a href="{{URL::to('/dang-ki')}}">Bạn chưa có tài khoản?</a><br>
 
 
   <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4"><br>

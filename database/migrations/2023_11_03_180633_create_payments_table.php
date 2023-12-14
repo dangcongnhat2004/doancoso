@@ -22,7 +22,6 @@ class CreatePaymentsTable extends Migration
             $table->timestamp('payment_timestamp');
             $table->enum('payment_status', ['confirmed', 'pending', 'canceled', 'completed']);
             $table->timestamps();
-
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('appointment_id')->references('id')->on('appointments');
         });

@@ -36,6 +36,14 @@ class UserController extends Controller
             return Redirect::to('dang-nhap')->send();
         }
     }
+
+    public function forget()
+    {
+        return view('users.forgetpassword');
+
+    }
+
+
      public function logout(Request $request)
      {
          Auth::logout(); // Đăng xuất người dùng
@@ -229,8 +237,6 @@ public function datlich(Request $request)
         }
     }
 
-
-
     public function cuochen(){
         $userId = auth()->id();
   // Lấy tất cả cuộc hẹn của người dùng đang đăng nhập
@@ -239,5 +245,7 @@ public function datlich(Request $request)
 
   return view('users.cuochen', compact('appointments', 'namedetailsDoctors'));
     }
+
+
 
 }
