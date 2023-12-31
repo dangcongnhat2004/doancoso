@@ -11,7 +11,6 @@
             <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <button class="btn btn-primary" id="updateDataBtn">Cập nhật dữ liệu</button>
                         <table class="table align-middle mb-0 bg-white">
                             <thead class="bg-light">
                                 <tr>
@@ -26,7 +25,7 @@
                                 @foreach($newsData as $data)
                                 <tr>
                                     <td>{{ $incrementedId++ }}</td>
-                                    <td>{{ $data->title }}</td>
+                                    <td><a  href="{{ $data->url }}" target="_blank" style="color: #007bff">{{ $data->title }}</a></td>
                                     <td class="truncate1">{{ $data->description }}</td>
                                     <td class="truncate">{{ $data->content }}</td>
                                 </tr>
@@ -39,7 +38,15 @@
         </div>
     </div>
 </div>
-
+<style>
+    .custom-link {
+    color: #007BFF;
+    /* Các thuộc tính CSS khác nếu cần */
+}
+    .custom-l{
+    color: #007BFF;
+}
+    </style>
 <!-- Thêm script để xử lý sự kiện click -->
 <script>
     document.addEventListener('DOMContentLoaded', function () {

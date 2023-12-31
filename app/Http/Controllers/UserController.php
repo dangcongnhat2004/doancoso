@@ -50,6 +50,9 @@ use Symfony\Component\DomCrawler\Crawler;class UserController extends Controller
     }
 
 
+    public function register(){
+        return view('users.register');
+    }
      public function logout(Request $request)
      {
          Auth::logout(); // Đăng xuất người dùng
@@ -322,7 +325,6 @@ public function scrapeData()
 
     return view('users.tintuc', compact('newsData'))->with('success', 'Dữ liệu đã được cập nhật');
 }
-
 
 
 

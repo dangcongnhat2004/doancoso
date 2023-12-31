@@ -30,6 +30,7 @@ use Illuminate\Support\Facades\Route;
     Route::get('/user-hien-thi-bac-si', [UserController::class, 'hienthibacsi']);
     Route::get('/user-dat-lich', [UserController::class, 'hienthilich']);
     Route::get('/user-tin-tuc', [UserController::class, 'scrapeData']);
+    Route::get('/user-bai-viet-chi-tiet', [UserController::class, 'chitiet']);
 
     Route::post('/user-dat-lich', [UserController::class, 'datlich']);
     Route::get('/user-cuoc-hen', [UserController::class, 'cuochen']);
