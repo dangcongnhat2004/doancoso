@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Appointment;
 use App\Models\Doctor;
 use App\Models\Medication;
 use App\Models\User;
@@ -19,6 +20,17 @@ use Hash;
 
 class AdminController extends Controller
 {
+    function checkAuthentication()
+    {
+        // Kiểm tra xem người dùng đã đăng nhập chưa
+        if (!Auth::check()) {
+            // Nếu chưa đăng nhập, chuyển hướng đến trang đăng nhập
+            return Redirect::to('/dashboard');
+        }
+
+        // Nếu đã đăng nhập, không thực hiện chuyển hướng
+        return null;
+    }
     public function handle($request, Closure $next)
     {
         if (Auth::check()) {
@@ -38,6 +50,7 @@ class AdminController extends Controller
        }
     //trang chu
     public function homeadmin(){
+
         return view('admin.login_admin');
     }
 
@@ -46,10 +59,16 @@ class AdminController extends Controller
 
     //dang nhap
     public function adminpage(){
+        $authenticationResult = $this->checkAuthentication();
+
+        // Kiểm tra kết quả xác thực
+        if ($authenticationResult !== null) {
+            // Nếu chưa đăng nhập, redirect sẽ được trả về từ hàm checkAuthentication
+            return $authenticationResult;
+        }
         return view('adminpage');
-    }
-
-
+        }
+   
 
 
 public function login(Request $request)
@@ -73,8 +92,23 @@ public function login(Request $request)
             Session::flash('success', ' !');
             $countDoctors = User::where('role', 'doctor')->count();
             $usershienthi = User::where('role', 'doctor')->get();
+            $countUsers = User::where('role', 'user')->count();
+            $countAppointments = Appointment::count(); // Không cần điều kiện nếu muốn đếm tất cả các bản ghi
+            $countMedications = Medication::count(); // Không cần điều kiện nếu muốn đếm tất cả các bản ghi
+            $countAllusers = User::count(); // Không cần điều kiện nếu muốn đếm tất cả các bản ghi
+            $recentUsers = User::where('role', 'user')
+            ->latest('created_at') // Sắp xếp theo thời gian tạo giảm dần
+            ->take(5) // Lấy 5 bản ghi đầu tiên
+            ->get(['avatar', 'name', 'created_at']);
+            $appointmentsByUser = Appointment::selectRaw('name, COUNT(id) as appointment_count')
+            ->groupBy('name')
+            ->orderByDesc('appointment_count')
+            ->take(5)
+            ->get();
 
-            return view('adminpage', compact('countDoctors', 'usershienthi'));
+
+
+            return view('adminpage', compact('countDoctors', 'countUsers', 'countAppointments', 'countMedications','countAllusers','recentUsers','appointmentsByUser','usershienthi'));
         } else {
             // Nếu không phải admin, đăng xuất và thông báo lỗi
             Auth::logout();
@@ -88,55 +122,100 @@ public function login(Request $request)
 
 public function adminhome()
 {
+    if (!Auth::check()) {
+        // Nếu chưa đăng nhập, chuyển hướng đến trang đăng nhập
+        return Redirect::to('/dashboard');
+    }
     $countDoctors = User::where('role', 'doctor')->count();
+    $countUsers = User::where('role', 'user')->count();
+    $countAppointments = Appointment::count(); // Không cần điều kiện nếu muốn đếm tất cả các bản ghi
+    $countMedications = Medication::count(); // Không cần điều kiện nếu muốn đếm tất cả các bản ghi
+    $countAllusers = User::count(); // Không cần điều kiện nếu muốn đếm tất cả các bản ghi
+    $recentUsers = User::where('role', 'user')
+    ->latest('created_at') // Sắp xếp theo thời gian tạo giảm dần
+    ->take(5) // Lấy 5 bản ghi đầu tiên
+    ->get(['avatar', 'name', 'created_at']);
+    $appointmentsByUser = Appointment::selectRaw('name, COUNT(id) as appointment_count')
+    ->groupBy('name')
+    ->orderByDesc('appointment_count')
+    ->take(5)
+    ->get();
+
     $usershienthi = User::where('role', 'user')->get();
 
-    return view('adminpage', compact('countDoctors', 'usershienthi'));
+    return view('adminpage', compact('countDoctors', 'countUsers', 'countAppointments', 'countMedications','countAllusers','recentUsers','appointmentsByUser', 'usershienthi'));
 }
 
 
     public function mainpage(){
-
+        if (!Auth::check()) {
+            // Nếu chưa đăng nhập, chuyển hướng đến trang đăng nhập
+            return Redirect::to('/dashboard');
+        }
         return Redirect::to('/admin');
     }
 
  public function lichtrinh()
  {
-    return view('admin.lichtrinh');
+     // Lấy danh sách các lịch hẹn
+     $appointments = Appointment::all();
+
+     // Duyệt qua mỗi lịch hẹn để kiểm tra và lấy thông tin bác sĩ
+     foreach ($appointments as $appointment) {
+         // Kiểm tra xem doctor_id có trùng với user_id ở bảng Users không
+         $doctor = User::find($appointment->doctor_id);
+
+         // Nếu trùng, hiển thị thông tin bác sĩ
+         if ($doctor) {
+             // Thêm thông tin bác sĩ vào đối tượng $appointment để hiển thị trong view
+             $appointment->doctor_avatar = $doctor->avatar;
+             $appointment->doctor_name = $doctor->name;
+             $appointment->doctor_specialization = $doctor->specialization;
+             // Thêm các trường thông tin bác sĩ khác nếu cần
+         }
+     }
+    return view('admin.lichtrinh', ['appointments' => $appointments]);
  }
- //logout
+ public function logout(Request $request)
+     {
+         Auth::logout(); // Đăng xuất người dùng
+         $request->session()->invalidate(); // Hủy bỏ phiên làm việc
+         $request->session()->regenerateToken(); // Tạo lại token CSRF mới
 
-//  public function logout(Request $request)
-// {
-//     Auth::logout();
-
-//     $request->session()->invalidate();
-
-//     $request->session()->regenerateToken();
-
-//     return redirect()->to('/dashboard');
-// }
-
+        return redirect('/dashboard'); // Chuyển hướng về trang chính hoặc trang đăng nhập
+     }
  //user
  //hienthibenhnhan
  public function hienthibenhnhan(){
+    if (!Auth::check()) {
+        // Nếu chưa đăng nhập, chuyển hướng đến trang đăng nhập
+        return Redirect::to('/dashboard');
+    }
       // Lấy danh sách người dùng có type là 'user'
       $users = User::where('role', 'user')->get();
 
       // Truyền dữ liệu người dùng sang view
-      return view('users.hienthibenhnhan', compact('users'));
+      return view('admin.show_user', compact('users'));
  }
 
 //hien thi bac si
 public function hienthibacsi(){
-
+    if (!Auth::check()) {
+        // Nếu chưa đăng nhập, chuyển hướng đến trang đăng nhập
+        return Redirect::to('/dashboard');
+    }
     // Lấy danh sách người dùng có type là 'user'
     $users = User::where('role', 'doctor')->get();
     // Truyền dữ liệu người dùng sang view
     return view('admin.show_doctor', compact('users'));
 }
-public function thembai(){
 
+
+public function thembai(){
+    if (!Auth::check()) {
+        // Nếu chưa đăng nhập, chuyển hướng đến trang đăng nhập
+        return Redirect::to('/dashboard');
+    }
     return view('admin.thembaiviet');
 }
 
@@ -168,12 +247,16 @@ public function thembaiviet(Request $request)
         $medication->save();
 
         // Redirect hoặc hiển thị thông báo thành công
-        return redirect()->back()->with('success', 'Thêm bài viết thành công');
+        return redirect()->back()->with('success', 'Thêm thuốc thành công');
     }
 
     //hienthidanhsachbaiviet
     public function hienthithuoc()
 {
+    if (!Auth::check()) {
+        // Nếu chưa đăng nhập, chuyển hướng đến trang đăng nhập
+        return Redirect::to('/dashboard');
+    }
     $medications = Medication::all(); // Lấy tất cả các bản ghi từ bảng medications
 
     return view('admin.hienthithuoc')->with('medications', $medications);

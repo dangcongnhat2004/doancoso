@@ -1,262 +1,207 @@
 @extends('admin_layout')
 @section('content_admin')
+@php
+    $incrementedId = 0;
+@endphp
+<!-- partial -->
+<div class="main-panel">
+    <div class="content-wrapper">
+      <div class="row">
+        <div class="col-md-12 grid-margin">
+          <div class="row">
+            <div class="col-12 col-xl-8 mb-4 mb-xl-0">
+                <span class="menu-title" style="font-size: 25px;">Chào mừng đến trang quản trị!</span>
 
-
-<div class="main_content_iner ">
-    <div class="container-fluid p-0">
-        <div class="row justify-content-center">
-            <div class="col-lg-12">
-                <div class="single_element">
-                    <div class="quick_activity">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="quick_activity_wrap">
-                                    <div class="single_quick_activity d-flex">
-                                        <div class="icon">
-                                            <img src="public/frontend_admin/images/man.svg" alt="">
-                                        </div>
-                                        <div class="count_content">
-                                            <h3><span class="counter">{{ $countDoctors }}</span> </h3>
-                                            <p>Doctors</p>
-                                        </div>
-                                    </div>
-                                    <div class="single_quick_activity d-flex">
-                                        <div class="icon">
-                                            <img src="public/frontend_admin/images/cap.svg" alt="">
-                                        </div>
-                                        <div class="count_content">
-                                            <h3><span class="counter">6969</span> </h3>
-                                            <p>Nurses</p>
-                                        </div>
-                                    </div>
-                                    <div class="single_quick_activity d-flex">
-                                        <div class="icon">
-                                            <img src="public/frontend_admin/images/wheel.svg" alt="">
-                                        </div>
-                                        <div class="count_content">
-                                            <h3><span class="counter">7510</span> </h3>
-                                            <p>Patients</p>
-                                        </div>
-                                    </div>
-                                    <div class="single_quick_activity d-flex">
-                                        <div class="icon">
-                                            <img src="public/frontend_admin/images/pharma.svg" alt="">
-                                        </div>
-                                        <div class="count_content">
-                                            <h3><span class="counter">2110</span> </h3>
-                                            <p>Pharmacusts</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+              {{-- <h6 class="font-weight-normal mb-0">All systems are running smoothly! You have <span class="text-primary">3 unread alerts!</span></h6> --}}
             </div>
-            {{-- <div class="col-lg-12 col-xl-12">
-                <div class="white_box mb_30 ">
-                    <div class="box_header border_bottom_1px  ">
-                        <div class="main-title">
-                            <h3 class="mb_25">Hospital Survey</h3>
-                        </div>
-                    </div>
-                    <div class="income_servay">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="count_content">
-                                    <h3>$ <span class="counter">305</span> </h3>
-                                    <p>Today's Income</p>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="count_content">
-                                    <h3>$ <span class="counter">1005</span> </h3>
-                                    <p>This Week's Income</p>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="count_content">
-                                    <h3>$ <span class="counter">5505</span> </h3>
-                                    <p>This Month's Income</p>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="count_content">
-                                    <h3>$ <span class="counter">155615</span> </h3>
-                                    <p>This Year's Income</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="bar_wev"></div>
-                </div>
-            </div> --}}
+            <div class="col-12 col-xl-4">
+             <div class="justify-content-end d-flex">
 
-            {{-- <div class="col-xl-5 ">
-                <div class="white_box card_height_50 mb_30">
-                    <div class="box_header border_bottom_1px  ">
-                        <div class="main-title">
-                            <h3 class="mb_25">Total Recover Report</h3>
-                        </div>
-                    </div>
-                    <div id="chart-7"></div>
-                    <div class="row text-center mt-3">
-                        <div class="col-sm-6">
-                            <h6 class="heading_6 d-block">Last Month</h6>
-                            <p class="m-0">358</p>
-                        </div>
-                        <div class="col-sm-6">
-                            <h6 class="heading_6 d-block">Current Month</h6>
-                            <p class="m-0">194</p>
-                        </div>
-                    </div>
+             </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 grid-margin stretch-card">
+          <div class="card tale-bg">
+            <div class="card-people mt-auto">
+              <img src="{{('public/frontend_admin_fix/images/dashboard/people.svg')}}" alt="people">
+              <div class="weather-info">
+                <div class="d-flex">
+                  <div>
+                    <h2 class="mb-0 font-weight-normal"><i class="icon-sun mr-2"></i>22<sup>C</sup></h2>
+                  </div>
+                  <div class="ml-2">
+                    <h4 class="location font-weight-normal">Đà Nẵng</h4>
+                    <h6 class="font-weight-normal">Việt Nam</h6>
+                  </div>
                 </div>
-                <div class="white_box card_height_50 mb_30">
-                    <div class="box_header border_bottom_1px  ">
-                        <div class="main-title">
-                            <h3 class="mb_25">Total Death Report</h3>
-                        </div>
-                    </div>
-                    <div id="chart-8"></div>
-                    <div class="row text-center mt-3">
-                        <div class="col-sm-6">
-                            <h6 class="heading_6 d-block">Last Month</h6>
-                            <p class="m-0">358</p>
-                        </div>
-                        <div class="col-sm-6">
-                            <h6 class="heading_6 d-block">Current Month</h6>
-                            <p class="m-0">194</p>
-                        </div>
-                    </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 grid-margin transparent">
+          <div class="row">
+            <div class="col-md-6 mb-4 stretch-card transparent">
+              <div class="card card-tale">
+                <div class="card-body">
+                  <p class="mb-4">Bệnh nhân</p>
+                  <p class="fs-30 mb-2">{{ $countUsers }}</p>
+                  <p>Đơn vị:người</p>
                 </div>
-            </div> --}}
-            <div class="col-xl-12">
-                <div class="white_box card_height_100">
-                    <div class="box_header border_bottom_1px  ">
-                        <div class="main-title">
-                            <h3 class="mb_25">Giới thiệu bác sĩ</h3>
-                        </div>
-                    </div>
+              </div>
+            </div>
+            <div class="col-md-6 mb-4 stretch-card transparent">
+              <div class="card card-dark-blue">
+                <div class="card-body">
+                  <p class="mb-4">Bác sĩ</p>
+                  <p class="fs-30 mb-2">{{ $countDoctors }}</p>
+                  <p>Đơn vị:người</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 mb-4 mb-lg-0 stretch-card transparent">
+              <div class="card card-light-blue">
+                <div class="card-body">
+                  <p class="mb-4">Cuộc hẹn</p>
+                  <p class="fs-30 mb-2">{{ $countAppointments }}</p>
+                  <p>Đơn vị:số</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 stretch-card transparent">
+              <div class="card card-light-danger">
+                <div class="card-body">
+                  <p class="mb-4">Thuốc</p>
+                  <p class="fs-30 mb-2">{{ $countMedications }}</p>
+                  <p>Đơn vị:số</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 grid-margin stretch-card">
 
-                    <div class="staf_list_wrapper sraf_active owl-carousel">
-                        @foreach($usershienthi as $user)
-                        <div class="single_staf">
-                            <div class="staf_thumb">
-                                @if($user->avatar)
-                                <img src="public/uploads/{{$user->anh_minh_hoa}}" alt="Ảnh minh họa" style="width: 50px; height: 50px;">
-                                @else
-                                <img src="{{ asset('public/frontend_admin/images/default_avatar.png') }}" alt="{{ $user->name }}">
-                                @endif
-                            </div>
-                            <h4>{{ $user->name }}</h4>
-                            <p>{{ $user->specialization  }}</p>
-                        </div>
-                        @endforeach
-                    </div>
+        </div>
 
+      </div>
+
+
+
+        <div class="row">
+            <div class="col-md-4 stretch-card grid-margin">
+              <div class="card">
+                <div class="card-body">
+                  <p class="card-title mb-0">Thông kê cuộc hẹn</p>
+                  <div class="table-responsive">
+                    <table class="table table-borderless">
+                      <thead>
+                        <tr>
+                          <th class="pl-0  pb-2 border-bottom">STT</th>
+                          <th class="border-bottom pb-2">Họ tên</th>
+                          <th class="border-bottom pb-2">Lịch hẹn</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        @foreach($appointmentsByUser as $index => $data)
+    <tr>
+        <td class="pl-0">{{ ++$index }}</td>
+        <td class="text-info mb-1">{{ $data->name }}</td>
+        <td class="text-muted">{{ $data->appointment_count }}</td>
+    </tr>
+@endforeach
+
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
+              </div>
             </div>
-            <div class="col-xl-6">
-                <div class="white_box card_height_100">
-                    <div class="box_header border_bottom_1px  ">
-                        <div class="main-title">
-                            <h3 class="mb_25">Recent Activity</h3>
+            <div class="col-md-4 stretch-card grid-margin">
+              <div class="row">
+                <div class="col-md-12 grid-margin stretch-card">
+                  <div class="card">
+                    <div class="card-body">
+                      <p class="card-title">Thuốc</p>
+                      <div class="charts-data">
+                        <div class="mt-3">
+                          <p class="mb-0">Loại</p>
+                          <div class="d-flex justify-content-between align-items-center">
+                            <div class="progress progress-md flex-grow-1 mr-4">
+                              <div class="progress-bar bg-inf0" role="progressbar" style="width: 95%" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <p class="mb-0">{{ $countMedications }} Thuốc</p>
+                          </div>
                         </div>
+
+                      </div>
                     </div>
-                    <div class="Activity_timeline">
-                        <ul>
-                            <li>
-                                <div class="activity_bell"></div>
-                                <div class="activity_wrap">
-                                    <h6>5 min ago</h6>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-                                        scelerisque
-                                    </p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="activity_bell"></div>
-                                <div class="activity_wrap">
-                                    <h6>5 min ago</h6>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-                                        scelerisque
-                                    </p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="activity_bell"></div>
-                                <div class="activity_wrap">
-                                    <h6>5 min ago</h6>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-                                        scelerisque
-                                    </p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="activity_bell"></div>
-                                <div class="activity_wrap">
-                                    <h6>5 min ago</h6>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-                                        scelerisque
-                                    </p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
+                  </div>
                 </div>
-            </div>
-            <div class="col-xl-6">
-                <div class="white_box mb_30">
-                    <div class="box_header border_bottom_1px  ">
-                        <div class="main-title">
-                            <h3 class="mb_25">Recent Activity</h3>
+                <div class="col-md-12 stretch-card grid-margin grid-margin-md-0">
+                  <div class="card data-icon-card-primary">
+                    <div class="card-body">
+                      <p class="card-title text-white">Số người sử dụng</p>
+                      <div class="row">
+                        <div class="col-8 text-white">
+                          <h3>{{ $countAllusers}}</h3>
+                          <p class="text-white font-weight-500 mb-0">Tổng quy mô người dùng </p>
                         </div>
+                        <div class="col-4 background-icon">
+                        </div>
+                      </div>
                     </div>
-                    <div class="activity_progressbar">
-                        <div class="single_progressbar">
-                            <h6>USA</h6>
-                            <div id="bar1" class="barfiller">
-                                <div class="tipWrap">
-                                    <span class="tip"></span>
-                                </div>
-                                <span class="fill" data-percentage="95"></span>
-                            </div>
-                        </div>
-                        <div class="single_progressbar">
-                            <h6>AFRICA</h6>
-                            <div id="bar2" class="barfiller">
-                                <div class="tipWrap">
-                                    <span class="tip"></span>
-                                </div>
-                                <span class="fill" data-percentage="75"></span>
-                            </div>
-                        </div>
-                        <div class="single_progressbar">
-                            <h6>UK</h6>
-                            <div id="bar3" class="barfiller">
-                                <div class="tipWrap">
-                                    <span class="tip"></span>
-                                </div>
-                                <span class="fill" data-percentage="55"></span>
-                            </div>
-                        </div>
-                        <div class="single_progressbar">
-                            <h6>CANADA</h6>
-                            <div id="bar4" class="barfiller">
-                                <div class="tipWrap">
-                                    <span class="tip"></span>
-                                </div>
-                                <span class="fill" data-percentage="25"></span>
-                            </div>
-                        </div>
-                    </div>
+                  </div>
                 </div>
+              </div>
             </div>
+
+<div class="col-md-4 stretch-card grid-margin">
+    <div class="card">
+        <div class="card-body">
+            <p class="card-title">Thông báo</p>
+            <ul class="icon-data-list">
+                @foreach($recentUsers as $data)
+
+                <li>
+                    <div class="d-flex">
+                        @if(isset($data->avatar))
+                            <img src="{{ asset('public/uploads/' . $data->avatar) }}" alt="user">
+                        @else
+                            <!-- Nếu không có avatar, bạn có thể thay thế bằng một hình ảnh mặc định -->
+                            <img src="{{ asset('path_to_default_avatar/default-avatar.jpg') }}" alt="default">
+                        @endif
+                        <div>
+                            <p class="text-info mb-1">{{ $data->name }}</p>
+                            <p class="mb-0">Đã tạo tài khoản</p>
+                            <small>{{ $data->created_at }}</small>
+                        </div>
+                    </div>
+                </li>
+                @endforeach
+
+            </ul>
         </div>
     </div>
 </div>
-
-
+          </div>
+    </div>
+    <!-- content-wrapper ends -->
+    <!-- partial:partials/_footer.html -->
+    <footer class="footer">
+      <div class="d-sm-flex justify-content-center justify-content-sm-between">
+        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">NHAT DEP TRAI </span>
+        <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Phước cute <i class="ti-heart text-danger ml-1"></i></span>
+      </div>
+    </footer>
+    <!-- partial -->
+  </div>
+  <!-- main-panel ends -->
 
 
 @endsection

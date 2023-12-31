@@ -1,10 +1,26 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="en">
 
 <head>
-
-    <!--md bootstrap-->
-    <!-- Font Awesome -->
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Trang quản trị</title>
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="{{('public/frontend_admin_fix/vendors/feather/feather.css')}}">
+  <link rel="stylesheet" href="{{('public/frontend_admin_fix/vendors/ti-icons/css/themify-icons.css')}}">
+  <link rel="stylesheet" href="{{('public/frontend_admin_fix/vendors/css/vendor.bundle.base.css')}}">
+  <!-- endinject -->
+  <!-- Plugin css for this page -->
+  <link rel="stylesheet" href="{{('public/frontend_admin_fix/vendors/datatables.net-bs4/dataTables.bootstrap4.css')}}">
+  <link rel="stylesheet" href="{{('public/frontend_admin_fix/vendors/ti-icons/css/themify-icons.css')}}">
+  <link rel="stylesheet" type="{{('public/frontend_admin_fix/text/css')}}" href="{{('public/frontend_admin_fix/js/select.dataTables.min.css')}}">
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="{{('public/frontend_admin_fix/css/vertical-layout-light/style.css')}}">
+  <!-- endinject -->
+  <link rel="shortcut icon" href="{{('public/frontend_admin_fix/images/logom.svg')}}" />
+  <!-- Font Awesome -->
 <link
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
 rel="stylesheet"
@@ -14,257 +30,339 @@ rel="stylesheet"
 href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
 rel="stylesheet"
 />
-<!-- MDB -->
-<link
-href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.css"
-rel="stylesheet"
-/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-...your-sha512-hash-here..." crossorigin="anonymous" referrerpolicy="no-referrer" />
-<!-- MDB -->
-<script
-  type="text/javascript"
-  src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.js"
-></script>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Hospital</title>
-    <link rel="icon" href="images/logo.png" type="image/png">
-    <link rel="stylesheet" href="{{('public/frontend_admin/css/all.css')}}">
 
-    <link rel="stylesheet" href="{{('public/frontend_admin/css/bootstrap1.min.css')}}">
-
-    <link rel="stylesheet" href="{{('public/frontend_admin/css/themify-icons.css')}}">
-
-    <link rel="stylesheet" href="{{('public/frontend_admin/css/swiper.min.css')}}">
-
-    <link rel="stylesheet" href="{{('public/frontend_admin/css/select2.min.css')}}">
-
-    <link rel="stylesheet" href="{{('public/frontend_admin/css/nice-select.css')}}">
-
-    <link rel="stylesheet" href="{{('public/frontend_admin/css/owl.carousel.css')}}">
-
-    <link rel="stylesheet" href="{{('public/frontend_admin/css/gijgo.min.css')}}">
-
-    <link rel="stylesheet" href="{{('public/frontend_admin/css/all.min.css')}}">
-    <link rel="stylesheet" href="{{('public/frontend_admin/css/tagsinput.css')}}">
-
-    <link rel="stylesheet" href="{{'public/frontend_admin/css/jquery.dataTables.min.css'}}">
-    <link rel="stylesheet" href="{{('public/frontend_admin/css/responsive.dataTables.min.css')}}">
-    <link rel="stylesheet" href="{{('public/frontend_admin/css/buttons.dataTables.min.css')}}">
-
-    <link rel="stylesheet" href="{{('public/frontend_admin/css/summernote-bs4.css')}}">
-
-    <link rel="stylesheet" href="{{('public/frontend_admin/css/morris.css')}}">
-
-    <link rel="stylesheet" href="{{('public/frontend_admin/css/material-icons.css')}}">
-
-    <link rel="stylesheet" href="{{('public/frontend_admin/css/metisMenu.css')}}">
-
-    <link rel="stylesheet" href="{{('public/frontend_admin/css/style1.css')}}">
-    <link rel="stylesheet" href="{{('public/frontend_admin/css/default.css')}}" id="colorSkinCSS">
 </head>
-
-<body class="crm_body_bg">
-
-
-
-    <nav class="sidebar">
-        <div class="logo d-flex justify-content-between">
-            <a href="{{URL::to('dashboard')}}"><img src="{{('public/frontend_admin/images/logo.png')}}" alt=""></a>
-            <div class="sidebar_close_icon d-lg-none">
-                <i class="ti-close"></i>
+<body>
+  <div class="container-scroller">
+    <!-- partial:partials/_navbar.html -->
+    <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+      <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+        <a class="navbar-brand brand-logo mr-5" href="{{URL::to('/trang-chu-admin')}}"><img src="{{('public/frontend/img/anhdaidien.png')}}"  alt="#" class="mr-2" alt="logo"/></a>
+        <a class="navbar-brand brand-logo-mini" href="{{URL::to('/trang-chu-admin')}}"><img src="{{('public/frontend_admin_fix/images/logom.svg')}}" alt="logo"/></a>
+      </div>
+      <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+        <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+          <span class="icon-menu"></span>
+        </button>
+        <ul class="navbar-nav mr-lg-2">
+          <li class="nav-item nav-search d-none d-lg-block">
+            <div class="input-group">
+              <div class="input-group-prepend hover-cursor" id="navbar-search-icon">
+                <span class="input-group-text" id="search">
+                  <i class="icon-search"></i>
+                </span>
+              </div>
+              <input type="text" class="form-control" id="navbar-search-input" placeholder="Tìm kiếm ngay" aria-label="search" aria-describedby="search">
             </div>
-        </div>
-        <ul id="sidebar_menu">
-            <li class="side_menu_title">
-                <span>Trang Quản Trị</span>
-            </li>
-            <li class="mm-active">
-                <a class="" href="{{URL::to('/trang-chu-admin')}}" aria-expanded="false">
-
-                    <img src="{{('public/frontend_admin/images/1.svg')}}" alt="">
-                    <span>Trang Chủ</span>
-                </a>
-                {{-- <ul>
-                    <li><a class="active" href="index.html">Dashboard 1</a></li>
-                    <li><a href="index_2.html">Dashboard 2</a></li>
-                </ul> --}}
-            </li>
-            <li class="side_menu_title">
-                <span>Quản lí con người</span>
-            </li>
-            <li class="">
-                <a class="has-arrow" href="#" aria-expanded="false">
-
-                    <!-- Sử dụng class của Font Awesome để hiển thị biểu tượng -->
-  <!-- Thêm biểu tượng khác nếu cần -->
-  <i class="fas fa-stethoscope"></i>
-                    <span>Bác Sỹ</span>
-                </a>
-                <ul>
-                    <li><a href="{{URL::to('/lich-trinh')}}"><i class="fa fa-plus"></i>Xem Lịch Trình</a></li>
-                    <li><a href="{{URL::to('/hien-thi-thong-tin-bac-sy')}}"><i class="fa fa-plus"></i>Hiển Thị Danh Sách</a></li>
-                    <li><a href="{{URL::to('/them-tai-khoan-bac-si')}}"><i class="fa fa-plus"></i>Thêm tài khoản bác sĩ</a></li>
-
-                </ul>
-            </li>
-            <li class="">
-                <a class="has-arrow" href="#" aria-expanded="false">
-                    <i class="fas fa-user-injured"></i>
-                    <span>Bệnh Nhân</span>
-                </a>
-                <ul>
-                    <li><a href="{{URL::to('/hien-thi-benh-nhan')}}"><i class="fa fa-plus"></i>Hiển Thị Danh Sách</a></li>
-                </ul>
-            </li>
-             <li class="side_menu_title">
-                <span>Quản lí bài viết</span>
-            </li>
-            <li class="">
-                <a class="has-arrow" href="#" aria-expanded="false">
-                    <img src="public/frontend_admin/images/4.svg" alt="">
-                    <span>Bài viết</span>
-                </a>
-                <ul>
-                    <li><a href="{{URL::to('/them-bai-viet')}}">Thêm bài viết</a>
-
-                    </li>
-                    <li><a href="{{URL::to('/hien-thi-thuoc')}}">Danh sách các bài viết</a>
-
-                    </li>
-                </ul>
-            </li>
-
-            <li class="">
-                <a class="has-arrow" href="#" aria-expanded="false">
-                    <img src="public/frontend_admin/images/7.svg" alt="">
-                    <span>Charts</span>
-                </a>
-                <ul>
-                    <li><a href="chartjs.html">ChartJS</a></li>
-                    <li><a href="apex_chart.html">Apex Charts</a></li>
-                    <li><a href="chart_sparkline.html">Chart sparkline</a></li>
-                </ul>
-            </li>
+          </li>
         </ul>
+        <ul class="navbar-nav navbar-nav-right">
+          <li class="nav-item dropdown">
+            <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
+              <i class="icon-bell mx-0"></i>
+              <span class="count"></span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
+              <p class="mb-0 font-weight-normal float-left dropdown-header">Thông báo</p>
+
+
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <div class="preview-icon bg-info">
+                    <i class="ti-user mx-0"></i>
+                  </div>
+                </div>
+                <div class="preview-item-content">
+                  <h6 class="preview-subject font-weight-normal">2 người đăng kí mới</h6>
+                  <p class="font-weight-light small-text mb-0 text-muted">
+                    2 days ago
+                  </p>
+                </div>
+              </a>
+            </div>
+          </li>
+          <li class="nav-item nav-profile dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
+              <img src="{{('public/frontend_admin_fix/images/admin1.webp')}}" alt="profile"/>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
+              <a class="dropdown-item">
+                <i class="ti-settings text-primary"></i>
+                Thông tin
+              </a>
+              <a class="dropdown-item">
+                <i class="ti-power-off text-primary"></i>
+                <form method="POST" action="{{URL::to('/dashboard')}}">
+                    @csrf
+                    <button type="submit" class="btn">Đăng xuất</button>
+                </form>
+              </a>
+            </div>
+          </li>
+
+        </ul>
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+          <span class="icon-menu"></span>
+        </button>
+      </div>
     </nav>
-
-
-    <section class="main_content dashboard_part">
-
-        <div class="container-fluid g-0">
-            <div class="row">
-                <div class="col-lg-12 p-0">
-                    <div class="header_iner d-flex justify-content-between align-items-center">
-                        <div class="sidebar_icon d-lg-none">
-                            <i class="ti-menu"></i>
-                        </div>
-                        <div class="serach_field-area">
-                            <div class="search_inner">
-                                @if (session('success'))
-                                <div class="alert alert-success">
-                                    {{ session('success') }}
-                                </div>
-                                    @endif
-
-                            </div>
-                        </div>
-                        <div class="header_right d-flex justify-content-between align-items-center">
-                            <div class="header_notification_warp d-flex align-items-center">
-                                <li>
-                                    <a href="#"> <img src="public/frontend_admin/images/bell.svg" alt=""> </a>
-                                </li>
-                                <li>
-                                    <a href="#"> <img src="public/frontend_admin/images/msg.svg" alt=""> </a>
-                                </li>
-                            </div>
-                            <div class="profile_info">
-                                <img src="public/frontend_admin/images/adminn.jfif" alt="#">
-                                <div class="profile_info_iner">
-                                    <h5>Quản Trị Viên</h5>
-                                    <div class="profile_info_details">
-
-                                        <form method="POST" action="{{ route('logout') }}">
-                                            @csrf
-                                            <button type="submit">Logout</button>
-                                        </form>                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_settings-panel.html -->
+      {{-- <div class="theme-setting-wrapper">
+        <div id="settings-trigger"><i class="ti-settings"></i></div>
+        <div id="theme-settings" class="settings-panel">
+          <i class="settings-close ti-close"></i>
+          <p class="settings-heading">SIDEBAR SKINS</p>
+          <div class="sidebar-bg-options selected" id="sidebar-light-theme"><div class="img-ss rounded-circle bg-light border mr-3"></div>Light</div>
+          <div class="sidebar-bg-options" id="sidebar-dark-theme"><div class="img-ss rounded-circle bg-dark border mr-3"></div>Dark</div>
+          <p class="settings-heading mt-2">HEADER SKINS</p>
+          <div class="color-tiles mx-0 px-4">
+            <div class="tiles success"></div>
+            <div class="tiles warning"></div>
+            <div class="tiles danger"></div>
+            <div class="tiles info"></div>
+            <div class="tiles dark"></div>
+            <div class="tiles default"></div>
+          </div>
         </div>
-
-
-
-
-        @yield('content_admin')
-
-
-
-
-
-        <div class="footer_part">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="footer_iner text-center">
-                            <p>2023 © Designed by <a href="#"> <i class="ti-heart"></i> </a><a
-                                    href="#">Anh Iu</a></p>
-                        </div>
-                    </div>
+      </div> --}}
+      <div id="right-sidebar" class="settings-panel">
+        <i class="settings-close ti-close"></i>
+        <ul class="nav nav-tabs border-top" id="setting-panel" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" id="todo-tab" data-toggle="tab" href="#todo-section" role="tab" aria-controls="todo-section" aria-expanded="true">TO DO LIST</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="chats-tab" data-toggle="tab" href="#chats-section" role="tab" aria-controls="chats-section">CHATS</a>
+          </li>
+        </ul>
+        <div class="tab-content" id="setting-content">
+          <div class="tab-pane fade show active scroll-wrapper" id="todo-section" role="tabpanel" aria-labelledby="todo-section">
+            <div class="add-items d-flex px-3 mb-0">
+              <form class="form w-100">
+                <div class="form-group d-flex">
+                  <input type="text" class="form-control todo-list-input" placeholder="Add To-do">
+                  <button type="submit" class="add btn btn-primary todo-list-add-btn" id="add-task">Add</button>
                 </div>
+              </form>
             </div>
+            <div class="list-wrapper px-3">
+              <ul class="d-flex flex-column-reverse todo-list">
+                <li>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="checkbox" type="checkbox">
+                      Team review meeting at 3.00 PM
+                    </label>
+                  </div>
+                  <i class="remove ti-close"></i>
+                </li>
+                <li>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="checkbox" type="checkbox">
+                      Prepare for presentation
+                    </label>
+                  </div>
+                  <i class="remove ti-close"></i>
+                </li>
+                <li>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="checkbox" type="checkbox">
+                      Resolve all the low priority tickets due today
+                    </label>
+                  </div>
+                  <i class="remove ti-close"></i>
+                </li>
+                <li class="completed">
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="checkbox" type="checkbox" checked>
+                      Schedule meeting for next week
+                    </label>
+                  </div>
+                  <i class="remove ti-close"></i>
+                </li>
+                <li class="completed">
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="checkbox" type="checkbox" checked>
+                      Project review
+                    </label>
+                  </div>
+                  <i class="remove ti-close"></i>
+                </li>
+              </ul>
+            </div>
+            <h4 class="px-3 text-muted mt-5 font-weight-light mb-0">Events</h4>
+            <div class="events pt-4 px-3">
+              <div class="wrapper d-flex mb-2">
+                <i class="ti-control-record text-primary mr-2"></i>
+                <span>Feb 11 2018</span>
+              </div>
+              <p class="mb-0 font-weight-thin text-gray">Creating component page build a js</p>
+              <p class="text-gray mb-0">The total number of sessions</p>
+            </div>
+            <div class="events pt-4 px-3">
+              <div class="wrapper d-flex mb-2">
+                <i class="ti-control-record text-primary mr-2"></i>
+                <span>Feb 7 2018</span>
+              </div>
+              <p class="mb-0 font-weight-thin text-gray">Meeting with Alisa</p>
+              <p class="text-gray mb-0 ">Call Sarah Graves</p>
+            </div>
+          </div>
+          <!-- To do section tab ends -->
+          <div class="tab-pane fade" id="chats-section" role="tabpanel" aria-labelledby="chats-section">
+            <div class="d-flex align-items-center justify-content-between border-bottom">
+              <p class="settings-heading border-top-0 mb-3 pl-3 pt-0 border-bottom-0 pb-0">Friends</p>
+              <small class="settings-heading border-top-0 mb-3 pt-0 border-bottom-0 pb-0 pr-3 font-weight-normal">See All</small>
+            </div>
+            <ul class="chat-list">
+              <li class="list active">
+                <div class="profile"><img src="{{('public/frontend_admin_fix/images/faces/face1.jpg')}}" alt="image"><span class="online"></span></div>
+                <div class="info">
+                  <p>Thomas Douglas</p>
+                  <p>Available</p>
+                </div>
+                <small class="text-muted my-auto">19 min</small>
+              </li>
+              <li class="list">
+                <div class="profile"><img src="{{('public/frontend_admin_fix/images/faces/face2.jpg')}}" alt="image"><span class="offline"></span></div>
+                <div class="info">
+                  <div class="wrapper d-flex">
+                    <p>Catherine</p>
+                  </div>
+                  <p>Away</p>
+                </div>
+                <div class="badge badge-success badge-pill my-auto mx-2">4</div>
+                <small class="text-muted my-auto">23 min</small>
+              </li>
+              <li class="list">
+                <div class="profile"><img src="{{('public/frontend_admin_fix/images/faces/face3.jpg')}}" alt="image"><span class="online"></span></div>
+                <div class="info">
+                  <p>Daniel Russell</p>
+                  <p>Available</p>
+                </div>
+                <small class="text-muted my-auto">14 min</small>
+              </li>
+              <li class="list">
+                <div class="profile"><img src="{{('public/frontend_admin_fix/images/faces/face4.jpg')}}" alt="image"><span class="offline"></span></div>
+                <div class="info">
+                  <p>James Richardson</p>
+                  <p>Away</p>
+                </div>
+                <small class="text-muted my-auto">2 min</small>
+              </li>
+              <li class="list">
+                <div class="profile"><img src="{{('public/frontend_admin_fix/images/faces/face5.jpg')}}" alt="image"><span class="online"></span></div>
+                <div class="info">
+                  <p>Madeline Kennedy</p>
+                  <p>Available</p>
+                </div>
+                <small class="text-muted my-auto">5 min</small>
+              </li>
+              <li class="list">
+                <div class="profile"><img src="{{('public/frontend_admin_fix/images/faces/face6.jpg')}}" alt="image"><span class="online"></span></div>
+                <div class="info">
+                  <p>Sarah Graves</p>
+                  <p>Available</p>
+                </div>
+                <small class="text-muted my-auto">47 min</small>
+              </li>
+            </ul>
+          </div>
+          <!-- chat tab ends -->
         </div>
-    </section>
+      </div>
+      <!-- partial -->
+      <!-- partial:partials/_sidebar.html -->
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" href="{{URL::to('/trang-chu-admin')}}">
+              <i class="fa-solid fa-house"></i>&nbsp;&nbsp;&nbsp;&nbsp;
+              <span class="menu-title">Trang Chủ</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+                <i class="fa-solid fa-user-nurse"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <span class="menu-title">Quản lí bác sĩ</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{{URL::to('/lich-trinh')}}">Xem lịch trình</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{URL::to('/hien-thi-thong-tin-bac-sy')}}">Danh sách</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{URL::to('/them-tai-khoan-bac-si')}}">Thêm tài khoản</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
+                <i class="fas fa-user-injured"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="menu-title">Quản lí bệnh nhân</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="form-elements">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"><a class="nav-link" href="{{URL::to('/hien-thi-benh-nhan')}}">Danh sách</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
+                <i class="fa-solid fa-notes-medical"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <span class="menu-title">Quản lí thuốc</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="charts">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{{URL::to('/them-bai-viet')}}">Thêm thuốc</a></li>
+              </ul>
+            </div>
+            <div class="collapse" id="charts">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"> <a class="nav-link" href="{{URL::to('/hien-thi-thuoc')}}">Danh sách thuốc</a></li>
+                </ul>
+              </div>
 
+          </li>
 
+        </ul>
+      </nav>
+      @yield('content_admin')
 
-    <script src="{{('public/frontend_admin/js/jquery1-3.4.1.min.js')}}"></script>
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
 
-    <script src="{{('public/frontend_admin/js/popper1.min.js')}}"></script>
+  <!-- plugins:js -->
+  <script src="{{('public/frontend_admin_fix/vendors/js/vendor.bundle.base.js')}}"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page -->
+  <script src="{{('public/frontend_admin_fix/vendors/chart.js/Chart.min.js')}}"></script>
+  <script src="{{('public/frontend_admin_fix/vendors/datatables.net/jquery.dataTables.js')}}"></script>
+  <script src="{{('public/frontend_admin_fix/vendors/datatables.net-bs4/dataTables.bootstrap4.js')}}"></script>
+  <script src="{{('public/frontend_admin_fix/js/dataTables.select.min.js')}}"></script>
 
-    <script src="{{('public/frontend_admin/js/bootstrap1.min.js')}}"></script>
-
-    <script src="{{('public/frontend_admin/js/metisMenu.js')}}"></script>
-
-    <script src="{{('public/frontend_admin/js/jquery.waypoints.min.js')}}"></script>
-
-    <script src="{{('public/frontend_admin/js/Chart.min.js')}}"></script>
-
-    <script src="{{('public/frontend_admin/js/jquery.counterup.min.js')}}"></script>
-
-    <script src="{{('public/frontend_admin/js/swiper.min.js')}}"></script>
-
-    <script src="{{('public/frontend_admin/js/jquery.nice-select.min.js')}}"></script>
-
-    <script src="{{('public/frontend_admin/js/owl.carousel.min.js')}}"></script>
-
-    <script src="{{('public/frontend_admin/js/gijgo.min.js')}}"></script>
-
-    <script src="{{('public/frontend_admin/js/jquery.dataTables.min.js')}}"></script>
-    <script src="{{('public/frontend_admin/js/dataTables.responsive.min.js')}}"></script>
-    <script src="{{('public/frontend_admin/js/dataTables.buttons.min.js')}}"></script>
-    <script src="{{('public/frontend_admin/js/buttons.flash.min.js')}}"></script>
-    <script src="{{('public/frontend_admin/js/jszip.min.js')}}"></script>
-    <script src="{{('public/frontend_admin/js/pdfmake.min.js')}}"></script>
-    <script src="{{('public/frontend_admin/js/vfs_fonts.js')}}"></script>
-    <script src="{{('public/frontend_admin/js/buttons.html5.min.js')}}"></script>
-    <script src="{{('public/frontend_admin/js/buttons.print.min.js')}}"></script>
-    <script src="{{('public/frontend_admin/js/chart.min.js')}}"></script>
-
-    <script src="{{('public/frontend_admin/js/jquery.barfiller.js')}}"></script>
-
-    <script src="{{('public/frontend_admin/js/tagsinput.js')}}"></script>
-
-    <script src="{{('public/frontend_admin/js/summernote-bs4.js')}}"></script>
-    <script src="{{('public/frontend_admin/js/apexcharts.js')}}"></script>
-
-    <script src="{{('public/frontend_admin/js/custom.js')}}"></script>
-    <script src="{{('public/frontend_admin/js/bar_active_1.js')}}"></script>
-    <script src="{{('public/frontend_admin/js/apex_chart_list.js')}}"></script>
-
+  <!-- End plugin js for this page -->
+  <!-- inject:js -->
+  <script src="{{('public/frontend_admin_fix/js/off-canvas.js')}}"></script>
+  <script src="{{('public/frontend_admin_fix/js/hoverable-collapse.js')}}"></script>
+  <script src="{{('public/frontend_admin_fix/js/template.js')}}"></script>
+  <script src="{{('public/frontend_admin_fix/js/settings.js')}}"></script>
+  <script src="{{('public/frontend_admin_fix/js/todolist.js')}}"></script>
+  <!-- endinject -->
+  <!-- Custom js for this page-->
+  <script src="{{('public/frontend_admin_fix/js/dashboard.js')}}"></script>
+  <script src="{{('public/frontend_admin_fix/js/Chart.roundedBarCharts.js')}}"></script>
+  <!-- End custom js for this page-->
 </body>
 
 </html>
+
