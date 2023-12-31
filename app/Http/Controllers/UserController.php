@@ -19,7 +19,8 @@ use Redirect;
 use Illuminate\Support\Str;
 
 use Illuminate\Support\Facades\Log;
-use Symfony\Component\DomCrawler\Crawler;class UserController extends Controller
+use Symfony\Component\DomCrawler\Crawler;
+class UserController extends Controller
 {
     function checkAuthentication()
     {
@@ -100,7 +101,8 @@ use Symfony\Component\DomCrawler\Crawler;class UserController extends Controller
         return view('users.homeuser');
     }
 
-    public function updateData()
+
+    function updateData()
     {
         $client = new Client();
             $crawler = $client->request('GET', 'https://moh.gov.vn/');
@@ -137,13 +139,21 @@ use Symfony\Component\DomCrawler\Crawler;class UserController extends Controller
                 ]);
             }
 
-            $this->info('Scraping completed.');
             $newsData = News::all();
 
             return view('users.tintuc', compact('newsData'))->with('success', 'Dữ liệu đã được cập nhật');
         }
+        public function deleteAllNews()
+        {
+            try {
+                // Xóa tất cả các bản ghi trong bảng news
+                News::truncate();
 
-
+                return redirect()->back()->with('success', 'Đã xóa tất cả bản ghi trong bảng news.');
+            } catch (\Exception $e) {
+                return redirect()->back()->with('error', 'Đã xảy ra lỗi khi xóa bản ghi: ' . $e->getMessage());
+            }
+        }
 
     public function login(Request $request)
 {
@@ -161,9 +171,11 @@ use Symfony\Component\DomCrawler\Crawler;class UserController extends Controller
         $user = Auth::User();
 
         if ($user->role === 'user') {
+            $this->deleteAllNews();
+
+            $this->updateData();
 
             // Kiểm tra xem đăng nhập user có role là 'admin' không
-
            $request->session()->put('user_name', $user->name);
             return view('users.homeuser');
         } else {
@@ -235,9 +247,7 @@ public function datlich(Request $request)
 
 
 
-    public function register(){
-        return view('users.register');
-    }
+
     public function hienthibacsi()
   {
     // Gọi hàm kiểm tra xác thực
@@ -295,6 +305,23 @@ public function datlich(Request $request)
             return back()->with('error', 'Đăng ký không thành công. Vui lòng thử lại.');
         }
     }
+    public function showDetail($id)
+    {
+        // Lọc bản tin với id tương ứng
+        $news = News::find($id);
+
+        // Kiểm tra xem bản tin có tồn tại hay không
+        if (!$news) {
+            abort(404); // Trả về trang 404 nếu không tìm thấy bản tin
+        }
+
+        return view('users.bantinchitiet', compact('news'));
+    }
+    public function showDetail1()
+    {
+        return view('users.bantinchitiettest');
+    }
+
 
     public function cuochen(){
         $authenticationResult = $this->checkAuthentication();

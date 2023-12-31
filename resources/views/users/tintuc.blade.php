@@ -21,15 +21,20 @@
                                 </tr>
                             </thead>
                             <tbody id="newsDataBody">
-                                {{-- Hiển thị dữ liệu từ $newsData --}}
                                 @foreach($newsData as $data)
-                                <tr>
-                                    <td>{{ $incrementedId++ }}</td>
-                                    <td><a  href="{{ $data->url }}" target="_blank" style="color: #007bff">{{ $data->title }}</a></td>
-                                    <td class="truncate1">{{ $data->description }}</td>
-                                    <td class="truncate">{{ $data->content }}</td>
-                                </tr>
-                                @endforeach
+    <tr>
+        <td>{{ $incrementedId++ }}</td>
+        <td>
+            <a href="{{ URL::to('/user-bai-viet-chi-tiet/' . $data->id) }}" style="color: #007bff">
+                {{ $data->title }}
+            </a>
+        </td>
+        <td class="truncate1">{{ $data->description }}</td>
+        <td class="truncate">{{ $data->content }}</td>
+    </tr>
+@endforeach
+
+
                             </tbody>
                         </table>
                     </div>

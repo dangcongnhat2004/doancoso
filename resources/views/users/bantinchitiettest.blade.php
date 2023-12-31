@@ -13,7 +13,7 @@
           //hình ảnh
           <section class="border-bottom mb-4">
             {{-- Kiểm tra xem $news có tồn tại và thumbnall không phải là null --}}
-                <img src="{{ asset($news->thumbnall) }}" class="img-fluid shadow-2-strong rounded mb-4" alt="{{ $news->title }}" />
+                {{-- <img src="{{ asset($news->thumbnall) }}" class="img-fluid shadow-2-strong rounded mb-4" alt="{{ $news->title }}" /> --}}
 
         </section>
 
@@ -21,11 +21,11 @@
         <!-- Section: Post data-mdb -->
         <section>
             {{-- Kiểm tra xem $news có tồn tại và description không phải là null --}}
-                <p><strong>{!! e($news->description) !!}</strong></p>
+                {{-- <p><strong>{!! e($news->description) !!}</strong></p> --}}
 
 
             {{-- Kiểm tra xem $news có tồn tại và content không phải là null --}}
-                <p>{!! nl2br(e($news->content)) !!}</p>
+                {{-- <p>{!! nl2br(e($news->content)) !!}</p> --}}
 
         </section>
 
