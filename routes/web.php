@@ -18,7 +18,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 //users
-    // Các route khác
 
     Route::get('/', [UserController::class, 'home']);
     Route::post('/dang-xuat', [UserController::class, 'logout'])->name('logout');
@@ -30,6 +29,8 @@ use Illuminate\Support\Facades\Route;
     Route::post('/dang-ki', [UserController::class, 'create']);
     Route::get('/user-hien-thi-bac-si', [UserController::class, 'hienthibacsi']);
     Route::get('/user-dat-lich', [UserController::class, 'hienthilich']);
+    Route::get('/user-tin-tuc', [UserController::class, 'scrapeData']);
+
     Route::post('/user-dat-lich', [UserController::class, 'datlich']);
     Route::get('/user-cuoc-hen', [UserController::class, 'cuochen']);
     Route::get('/user-hien-thi-thuoc', [UserController::class, 'hienthithuoc']);
@@ -37,9 +38,14 @@ use Illuminate\Support\Facades\Route;
     Route::get('/reset-password', [ResetPasswordController::class, 'showForm']);
     Route::post('/reset-password', [ResetPasswordController::class, 'sendResetLink'])->name('send.reset.link');
 
+
+    Route::get('/update-data', [UserController::class, 'updateData'])->name('updateData');
+
+
 //admin
 Route::get('/dashboard', [AdminController::class, 'homeadmin']);
 //Route::post('/dashboard', [AdminController::class, 'logout'])->name('logout');
+Route::post('/dashboard', [AdminController::class, 'logout'])->name('logout');
 
 
 Route::post('/admin-home', [AdminController::class, 'login']);
@@ -60,11 +66,19 @@ Route::post('/them-tai-khoan-bac-si', [AdminController::class, 'thembacsi']);
 
 //doctor
 Route::get('/doctor-home', [DoctorController::class, 'index']);
+Route::get('/trang-chu-bac-si', [DoctorController::class, 'trangchu']);
+Route::post('/dang-xuat-bac-si', [DoctorController::class, 'logout'])->name('logout');
+
 Route::post('/doctor-home', [DoctorController::class, 'login']);
-Route::get('/doctor-lich-trinh', [DoctorController::class, 'lichtrinh']);
+Route::get('/bac-si-lich-trinh', [DoctorController::class, 'lichtrinh']);
 // Route::post('/logout', [DoctorController::class, 'logout']);
 // Route::get('/doctor-hien-thi-thong-tin-bac-sy', [DoctorController::class, 'hienthibacsi']);
-Route::get('/doctor-cap-nhat-thong-tin', [DoctorController::class, 'hienthithongtin']);
-Route::post('/doctor-cap-nhat-thong-tin', [DoctorController::class, 'capnhatthongtin']);
+Route::get('/bac-si-cap-nhat-thong-tin', [DoctorController::class, 'hienthithongtin']);
+Route::get('/bac-si-hien-thi-nguoi-benh', [DoctorController::class, 'hienthinguoibenh']);
 
+Route::post('/bac-si-cap-nhat-thong-tin', [DoctorController::class, 'capnhatthongtin']);
+
+
+//test
+Route::get('/testadmin', [UserController::class, 'test']);
 

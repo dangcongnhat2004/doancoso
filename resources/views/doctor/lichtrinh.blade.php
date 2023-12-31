@@ -4,67 +4,49 @@
 <table class="table align-middle mb-0 bg-white">
     <thead class="bg-light">
       <tr>
-        <th>Bác sĩ</th>
-        <th>Chuyên ngành</th>
+        <th>STT</th>
+        <th>Họ tên</th>
         <th>Ngày hẹn</th>
         <th>Thời gian</th>
         <th>Trạng Thái</th>
-        <th>Người hẹn</th>
-
+        <th>Người đặt lịch</th>
       </tr>
     </thead>
     <tbody>
+        @foreach($appointments as $appointment)
+        @php
+            $patient = $patients->where('id', $appointment->user_id)->first();
+        @endphp
 
       <tr>
         <td>
-          <div class="d-flex align-items-center">
-            <img
-                src="https://mdbootstrap.com/img/new/avatars/6.jpg"
-                class="rounded-circle"
-                alt=""
-                style="width: 45px; height: 45px"
-                />
-            <div class="ms-3">
-              <p class="fw-bold mb-1"></p>
-              <p class="text-muted mb-0"></p>
-            </div>
-          </div>
-        </td>
-        <td>
-          <p class="fw-normal mb-1">Consultant</p>
-        </td>
-        <td>
-            <p class="text-muted mb-0">Finance</p>
-
-        </td>
-        <td>Junior</td>
-        <td>
-         <!-- Sử dụng class của Font Awesome để hiển thị biểu tượng xóa -->
-         &nbsp; &nbsp; &nbsp; &nbsp;
-         <i class="fa-solid fa-thumbs-up" style="color: #0a5ef0;"></i>
-
-
-        </td>
-
-        <td>
-            <div class="d-flex align-items-center">
-              <img
-                  src="https://mdbootstrap.com/img/new/avatars/6.jpg"
-                  class="rounded-circle"
-                  alt=""
-                  style="width: 45px; height: 45px"
-                  />
-              <div class="ms-3">
-                <p class="fw-bold mb-1">Alex Ray</p>
-                <p class="text-muted mb-0">alex.ray@gmail.com</p>
-              </div>
-            </div>
+            <p class="fw-normal mb-1">{{ $loop->iteration }}</p>
           </td>
+
+        <td>
+            <p class="text-muted mb-0">{{ $appointment->name }}</p>
+        </td>
+
+        <td>{{ $appointment->created_at }}</td>
+        <td>{{ $appointment->created_at }}</td>
+
+        <td>
+            <!-- Sử dụng class của Font Awesome để hiển thị biểu tượng xóa -->
+            &nbsp; &nbsp; &nbsp; &nbsp;
+            <i class="fa-solid fa-thumbs-up" style="color: #0a5ef0;"></i>
+        </td>
+
+        <td>
+            @if($patient)
+                {{ $patient->name }}
+                <!-- Hiển thị thông tin khác của người đặt lịch nếu cần -->
+            @else
+                Không có thông tin
+            @endif
+        </td>
       </tr>
-
+      @endforeach
     </tbody>
-  </table>
-
-
+</table>
 
 @endsection

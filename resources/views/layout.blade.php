@@ -121,7 +121,7 @@ rel="stylesheet"
 							<div class="col-lg-3 col-md-3 col-12">
 								<!-- Start Logo -->
 								<div class="logo">
-                                    <a href="index.html"><img src="{{('public/frontend/img/anhdaidien.png')}}" width="220" alt="#"></a>
+                                    <a href="index.html"><img src="{{('public/frontend/img/anhdaidien.png')}}" width="180" alt="#"></a>
 								</div>
 								<!-- End Logo -->
 								<!-- Mobile Nav -->
@@ -145,7 +145,7 @@ rel="stylesheet"
 													<li><a href="404.html">404 Error</a></li>
 												</ul> --}}
 											</li>
-											<li><a href="{{URL::to('/dang-nhap')}}">Chat AI {{--<i class="icofont-rounded-down"></i>--}} </a>
+											<li><a href="{{URL::to('/dang-nhap')}}">Thuốc {{--<i class="icofont-rounded-down"></i>--}} </a>
 												{{-- <ul class="dropdown">
 													<li><a href="blog-single.html">Blog Details</a></li>
 												</ul> --}}
@@ -201,7 +201,7 @@ rel="stylesheet"
 											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Trang chủ</a></li>
 											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Bác sĩ</a></li>
 											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Đặt lịch</a></li>
-                                            <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Chat AI</a></li>
+                                            <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Thuốc</a></li>
 											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Đăng nhật</a></li>
 										</ul>
 									</div>
@@ -233,7 +233,7 @@ rel="stylesheet"
 								<p>Đăng kí để nhận các thông tin mới nhất </p>
 								<form action="mail/mail.php" method="get" target="_blank" class="newsletter-inner">
 									<input name="email" placeholder="Địa chỉ Email" class="common-input" onfocus="this.placeholder = ''"
-										onblur="this.placeholder = 'Your email address'" required="" type="email">
+										onblur="this.placeholder = 'Địa chỉ Email'" required="Địa chỉ Email" type="email">
 									<button class="button"><i class="icofont icofont-paper-plane"></i></button>
 								</form>
 							</div>
@@ -248,7 +248,7 @@ rel="stylesheet"
 					<div class="row">
 						<div class="col-lg-12 col-md-12 col-12">
 							<div class="copyright-content">
-								<p>© Copyright 2023  |  được làm bởi <a href="" target="_blank">Nhật đẹp trai-phước xấu gái</a> </p>
+								<p>© Copyright 2023  |  được làm bởi <a href="" target="_blank">Nhật-phước</a> </p>
 							</div>
 						</div>
 					</div>
@@ -298,5 +298,26 @@ rel="stylesheet"
 		<script src="{{('public/frontend/js/bootstrap.min.js')}}"></script>
 		<!-- Main JS -->
 		<script src="{{('public/frontend/js/main.js')}}"></script>
+        <script>
+            // Thêm sự kiện lắng nghe cho sự thay đổi của dropdown
+            document.getElementById('typeMedical').addEventListener('change', function () {
+                var selectedType = this.value; // Lấy giá trị của option được chọn
+                var medicationRows = document.querySelectorAll('.medication-row'); // Lấy tất cả các dòng thuốc
+
+                // Ẩn tất cả các dòng thuốc trước khi hiển thị chỉ dòng thuốc thuộc loại được chọn
+                medicationRows.forEach(function (row) {
+                    row.style.display = 'none';
+                });
+
+                // Hiển thị chỉ dòng thuốc thuộc loại được chọn
+                medicationRows.forEach(function (row) {
+                    var rowType = row.getAttribute('data-type');
+                    if (selectedType === 'all' || selectedType === rowType) {
+                        row.style.display = 'table-row';
+                    }
+                });
+            });
+        </script>
+
     </body>
 </html>

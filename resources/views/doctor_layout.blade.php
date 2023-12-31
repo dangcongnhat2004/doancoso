@@ -85,7 +85,7 @@ rel="stylesheet"
 
     <nav class="sidebar">
         <div class="logo d-flex justify-content-between">
-            <a href="{{URL::to('dashboard')}}"><img src="{{('public/frontend_admin/images/logo.png')}}" alt=""></a>
+            <a href="{{URL::to('/trang-chu-bac-si')}}"><img src="{{('public/frontend/img/anhdaidien.png')}}" alt=""></a>
             <div class="sidebar_close_icon d-lg-none">
                 <i class="ti-close"></i>
             </div>
@@ -105,9 +105,9 @@ rel="stylesheet"
                     <span>Cập nhập hồ sơ</span>
                 </a>
                 <ul>
-                    <li><a href="{{URL::to('/doctor-lich-trinh')}}"><i class="fa fa-plus"></i>Lịch Trình của tôi</a></li>
+                    <li><a href="{{URL::to('/bac-si-lich-trinh')}}"><i class="fa fa-plus"></i>Lịch Trình của tôi</a></li>
                     {{-- <li><a href="{{URL::to('/doctor-hien-thi-thong-tin-bac-sy')}}"><i class="fa fa-plus"></i>Hiển Thị Danh Sách</a></li> --}}
-                    <li><a href="{{URL::to('/doctor-cap-nhat-thong-tin')}}"><i class="fa fa-plus"></i>Cập nhật thông tin</a></li>
+                    <li><a href="{{URL::to('/bac-si-cap-nhat-thong-tin')}}"><i class="fa fa-plus"></i>Cập nhật thông tin</a></li>
 
                 </ul>
             </li>
@@ -117,7 +117,7 @@ rel="stylesheet"
                     <span>Bệnh Nhân</span>
                 </a>
                 <ul>
-                    <li><a href="{{URL::to('/doctor-hien-thi-benh-nhan')}}"><i class="fa fa-plus"></i>Hiển Thị Danh Sách</a></li>
+                    <li><a href="{{URL::to('/bac-si-hien-thi-nguoi-benh')}}"><i class="fa fa-plus"></i>Hiển Thị Danh Sách</a></li>
                 </ul>
             </li>
 
@@ -163,7 +163,7 @@ rel="stylesheet"
 
                                         <form method="POST" action="{{ URL::to('/doctor-home') }}">
                                             @csrf
-                                            <button type="submit">Logout</button>
+                                            <button type="submit">Đăng xuất</button>
                                         </form>                                    </div>
                                 </div>
                             </div>

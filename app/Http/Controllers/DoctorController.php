@@ -6,13 +6,34 @@ use Illuminate\Http\Request;
 use Auth;
 session_start();
 use App\Models\User;
+use App\Models\Appointment;
+use Redirect;
 class DoctorController extends Controller
 {
 
+    function checkAuthentication()
+    {
+        // Kiểm tra xem người dùng đã đăng nhập chưa
+        if (!Auth::check()) {
+            // Nếu chưa đăng nhập, chuyển hướng đến trang đăng nhập
+            return Redirect::to('/admin-home');
+        }
+
+        // Nếu đã đăng nhập, không thực hiện chuyển hướng
+        return null;
+    }
   public function index(){
        return view("doctor.login");
 }
+public function trangchu(){
+    if (!Auth::check()) {
+        // Nếu chưa đăng nhập, chuyển hướng đến trang đăng nhập
+        return Redirect::to('/doctor-home');
+    }
 
+
+    return view("doctorpage");
+}
     public function login(Request $request)
 {
 
@@ -47,36 +68,67 @@ class DoctorController extends Controller
 }
 
 public function lichtrinh()
- {
-    return view('doctor.lichtrinh');
- }
+{
+    if (!Auth::check()) {
+        // Nếu chưa đăng nhập, chuyển hướng đến trang đăng nhập
+        return Redirect::to('/doctor-home');
+    }
+    // Lấy thông tin bác sĩ đăng nhập hiện tại
+    $doctor = auth()->user();
 
- public function logout(Request $request)
- {
-     Auth::logout();
 
-     $request->session()->invalidate();
+    // Lấy danh sách các lịch hẹn mà bác sĩ đã đặt
+    $appointments = Appointment::where('doctor_id', $doctor->id)->get();
 
-     $request->session()->regenerateToken();
+    // Lấy thông tin người đặt lịch
+    $patients = User::whereIn('id', $appointments->pluck('user_id'))->get();
 
-     return redirect()->to('/doctor-home');
- }
+    return view('doctor.lichtrinh', ['appointments' => $appointments, 'patients' => $patients]);
+}
+
+
+
+public function logout(Request $request)
+     {
+         Auth::logout(); // Đăng xuất người dùng
+         $request->session()->invalidate(); // Hủy bỏ phiên làm việc
+         $request->session()->regenerateToken(); // Tạo lại token CSRF mới
+
+        return redirect('/doctor-home'); // Chuyển hướng về trang chính hoặc trang đăng nhập
+     }
 
  public function hienthibacsi(){
-
+    if (!Auth::check()) {
+        // Nếu chưa đăng nhập, chuyển hướng đến trang đăng nhập
+        return Redirect::to('/doctor-home');
+    }
     // Lấy danh sách người dùng có type là 'user'
     $users = User::where('role', 'doctor')->get();
     // Truyền dữ liệu người dùng sang view
     return view('doctor.show_doctor', compact('users'));
 }
 public function hienthithongtin(){
-
+    if (!Auth::check()) {
+        // Nếu chưa đăng nhập, chuyển hướng đến trang đăng nhập
+        return Redirect::to('/doctor-home');
+    }
     // Lấy thông tin bác sĩ từ cơ sở dữ liệu
     $doctor = User::find(auth()->user()->id);
 // Ví dụ chuyển định dạng từ "Y-m-d" sang "d/m/Y"
 
     // Trả về view và truyền thông tin bác sĩ
     return view('doctor.capnhatthongtin', compact('doctor'));
+}
+public function hienthinguoibenh(){
+    if (!Auth::check()) {
+        // Nếu chưa đăng nhập, chuyển hướng đến trang đăng nhập
+        return Redirect::to('/doctor-home');
+    }
+    // Lấy danh sách người dùng có type là 'user'
+    $users = User::where('role', 'user')->get();
+
+    // Truyền dữ liệu người dùng sang view
+    return view('doctor.show_user', compact('users'));
 }
 
 public function capnhatthongtin(Request $request)

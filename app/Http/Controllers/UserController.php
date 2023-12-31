@@ -10,10 +10,16 @@ Use Auth;
 Use Session;
 use Carbon\Carbon;
 use App\Models\Appointment;
+use App\Models\Medication;
+use Goutte\Client;
+use App\Models\News;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\AppointmentNotification;
 use Redirect;
-class UserController extends Controller
+use Illuminate\Support\Str;
+
+use Illuminate\Support\Facades\Log;
+use Symfony\Component\DomCrawler\Crawler;class UserController extends Controller
 {
     function checkAuthentication()
     {
@@ -53,6 +59,8 @@ class UserController extends Controller
         return redirect('/'); // Chuyển hướng về trang chính hoặc trang đăng nhập
      }
     public function home(){
+        $authenticationResult = $this->checkAuthentication();
+
          // Gọi hàm kiểm tra xác thực
     // $authenticationResult = $this->checkAuthentication();
 
@@ -88,6 +96,52 @@ class UserController extends Controller
     }
         return view('users.homeuser');
     }
+
+    public function updateData()
+    {
+        $client = new Client();
+            $crawler = $client->request('GET', 'https://moh.gov.vn/');
+
+            $articleLinks = $crawler->filter('ul.list-news-3.m-t-10 a')->each(function ($node) {
+                return [
+                    'title' => $node->text(),
+                    'url' => $node->link()->getUri(),
+                ];
+            });
+
+            foreach ($articleLinks as $article) {
+                $detailPageCrawler = $client->request('GET', $article['url']);
+
+                // Cào nội dung từ trang chi tiết
+                $content = $detailPageCrawler->filter('div.journal-content-article')->text();
+
+                // Tạo slug từ tiêu đề
+                $slug = Str::slug($article['title']);
+
+                // Lấy giá trị của các trường khác (thumbnall, description) từ trang chi tiết
+                $thumbnall = $detailPageCrawler->filter('img')->attr('src');
+                $description = $detailPageCrawler->filter('p.sapo')->text();
+
+                // Lưu thông tin vào cơ sở dữ liệu
+                News::create([
+                    'title' => $article['title'],
+                    'slug' => $slug,
+                    'thumbnall' => $thumbnall,
+                    'description' => $description,
+                    'content' => $content,
+                    'created_at' => now(),
+                    'updated_at' => now(),
+                ]);
+            }
+
+            $this->info('Scraping completed.');
+            $newsData = News::all();
+
+            return view('users.tintuc', compact('newsData'))->with('success', 'Dữ liệu đã được cập nhật');
+        }
+
+
+
     public function login(Request $request)
 {
 
@@ -106,6 +160,7 @@ class UserController extends Controller
         if ($user->role === 'user') {
 
             // Kiểm tra xem đăng nhập user có role là 'admin' không
+
            $request->session()->put('user_name', $user->name);
             return view('users.homeuser');
         } else {
@@ -211,6 +266,7 @@ public function datlich(Request $request)
 
     public function create(Request $request)
     {
+
         // Kiểm tra dữ liệu từ form đăng ký
         $this->validate($request, [
             'name' => 'required|string',
@@ -238,6 +294,8 @@ public function datlich(Request $request)
     }
 
     public function cuochen(){
+        $authenticationResult = $this->checkAuthentication();
+
         $userId = auth()->id();
   // Lấy tất cả cuộc hẹn của người dùng đang đăng nhập
   $appointments = Appointment::where('user_id', auth()->id())->get();
@@ -245,6 +303,26 @@ public function datlich(Request $request)
 
   return view('users.cuochen', compact('appointments', 'namedetailsDoctors'));
     }
+//hienthi thuoc
+public function hienthithuoc()
+{
+    if (!Auth::check()) {
+        // Nếu chưa đăng nhập, chuyển hướng đến trang đăng nhập
+        return Redirect::to('/dang-nhap');
+    }
+    $medications = Medication::all(); // Lấy tất cả các bản ghi từ bảng medications
+
+    return view('users.hienthithuoc')->with('medications', $medications);
+}
+//cào dữ liệu
+public function scrapeData()
+{
+    // Lấy 5 bản ghi gần nhất, sắp xếp theo thời gian tạo giảm dần
+    $newsData = News::latest('created_at')->take(10)->get();
+
+    return view('users.tintuc', compact('newsData'))->with('success', 'Dữ liệu đã được cập nhật');
+}
+
 
 
 

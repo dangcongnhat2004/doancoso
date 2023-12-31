@@ -1,7 +1,7 @@
 @extends('doctor_layout')
 @section('content_doctor')
 
-<form action="{{ URL::to('/doctor-cap-nhat-thong-tin') }}" method="POST" role="form" enctype="multipart/form-data">
+<form action="{{ URL::to('/bac-si-cap-nhat-thong-tin') }}" method="POST" role="form" enctype="multipart/form-data">
     @csrf
     @if (session('success'))
     <div class="alert alert-success">
