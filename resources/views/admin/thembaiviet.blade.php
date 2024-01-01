@@ -22,7 +22,7 @@
           </div>
 
           <div class="form-group">
-            <label for="exampleSelectGender">Gender</label>
+            <label for="exampleSelectGender">Loại thuốc</label>
               <select class="form-control" id="exampleSelectGender" name="type_medical">
                 <option>Kháng sinh</option>
                 <option>Thảo dược</option>
