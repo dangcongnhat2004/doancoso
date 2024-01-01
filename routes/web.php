@@ -84,3 +84,4 @@ Route::post('/bac-si-cap-nhat-thong-tin', [DoctorController::class, 'capnhatthon
 //test
 Route::get('/testadmin', [UserController::class, 'test']);
 
+//phuoc
