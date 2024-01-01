@@ -30,6 +30,8 @@ use Illuminate\Support\Facades\Route;
     Route::get('/user-hien-thi-bac-si', [UserController::class, 'hienthibacsi']);
     Route::get('/user-dat-lich', [UserController::class, 'hienthilich']);
     Route::get('/user-tin-tuc', [UserController::class, 'scrapeData']);
+    Route::get('/user-bai-viet-chi-tiet/{id}', [UserController::class, 'showDetail']);
+    Route::get('/user-bai-viet-chi', [UserController::class, 'showDetail1']);
 
     Route::post('/user-dat-lich', [UserController::class, 'datlich']);
     Route::get('/user-cuoc-hen', [UserController::class, 'cuochen']);
@@ -39,7 +41,7 @@ use Illuminate\Support\Facades\Route;
     Route::post('/reset-password', [ResetPasswordController::class, 'sendResetLink'])->name('send.reset.link');
 
 
-    Route::get('/update-data', [UserController::class, 'updateData'])->name('updateData');
+     Route::get('/update-data', [UserController::class, 'updateData'])->name('updateData');
 
 
 //admin
